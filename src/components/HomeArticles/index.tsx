@@ -25,7 +25,7 @@ const HomeArticles = () => {
         <Loading />
       ) : (
         data?.offers.map((offer) => {
-          return <HomeArticle key={offer.id} offer={offer} />;
+          return <HomeArticle key={offer._id} offer={offer} />;
         })
       )}
     </section>

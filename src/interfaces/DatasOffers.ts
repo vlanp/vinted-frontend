@@ -6,7 +6,7 @@ interface DatasOffers {
 }
 
 interface Offer {
-  id: string;
+  _id: string;
   product_name: string;
   product_description: string;
   product_price: number;

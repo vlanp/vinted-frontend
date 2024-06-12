@@ -1,0 +1,64 @@
+.offer-overview {
+  height: calc(100vh - 6rem);
+  padding: 3rem 2rem;
+  background-color: #ebedee;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+.offer-overview > article {
+  height: 70rem;
+}
+.offer-overview > article > img {
+  height: 100%;
+  aspect-ratio: 0.75;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.offer-overview > aside {
+  background-color: white;
+  padding: 3rem;
+  height: 70rem;
+  aspect-ratio: 0.7;
+}
+.offer-overview > aside > p {
+  margin-bottom: 2rem;
+}
+.offer-overview > aside .details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 8rem;
+  border-bottom: 1px solid lightgrey;
+}
+.offer-overview > aside .details > div {
+  display: flex;
+  justify-content: space-between;
+}
+.offer-overview > aside .details > div > p {
+  width: 45%;
+  border: 1px solid green;
+}
+.offer-overview > aside .general-information {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 15rem;
+}
+.offer-overview > aside .general-information .seller {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.offer-overview > aside .general-information .seller > img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+.offer-overview > aside > button {
+  width: 100%;
+  padding: 1rem;
+  color: white;
+}/*# sourceMappingURL=offer.css.map */

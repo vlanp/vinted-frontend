@@ -1,4 +1,6 @@
+import "./homeArticle.css";
 import { Offer } from "../../../interfaces/DatasOffers";
+import { Link } from "react-router-dom";
 
 const HomeArticle = ({ offer }: { offer: Offer }) => {
   const keySize = "TAILLE";
@@ -15,13 +17,16 @@ const HomeArticle = ({ offer }: { offer: Offer }) => {
     brandDetail && keyBrand in brandDetail ? brandDetail.MARQUE : null;
 
   return (
-    <article className="home-article">
-      <p>{offer.owner.account.username}</p>
+    <Link to={"/offers/" + offer._id} className="home-article">
+      <div>
+        <img src={offer.owner.account.avatar.secure_url} alt="avatar" />
+        <p>{offer.owner.account.username}</p>
+      </div>
       <img src={offer.product_image.secure_url} alt={offer.product_name} />
-      <p>{offer.product_price.toFixed(2).replace(".", ",")}</p>
+      <p>{offer.product_price.toFixed(2).replace(".", ",") + " €"}</p>
       <p>{size}</p>
       <p>{brand}</p>
-    </article>
+    </Link>
   );
 };
 

@@ -1,6 +1,8 @@
 // IMPORT
+@import "./assets//fonts//font.css";
 
 // VARIABLE
+$blue-green: #2baeb7;
 
 // GENERAL
 
@@ -10,4 +12,18 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-family: "Bw Modelica Regular";
+  font-size: 1.6rem;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid $blue-green;
+  border-radius: 5px;
+  font-family: "Bw Modelica Regular";
+  background-color: $blue-green;
+  font-size: 1.6rem;
 }

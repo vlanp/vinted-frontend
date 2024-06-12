@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Bw Modelica Bold";
+  src: url("BwModelica-Bold.eot");
+  src: url("BwModelica-Bold.eot?#iefix") format("embedded-opentype"),
+    url("BwModelica-Bold.woff2") format("woff2"),
+    url("BwModelica-Bold.woff") format("woff"),
+    url("BwModelica-Bold.ttf") format("truetype"),
+    url("BwModelica-Bold.svg#BwModelica-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bw Modelica Regular";
+  src: url("BwModelica-Regular.eot");
+  src: url("BwModelica-Regular.eot?#iefix") format("embedded-opentype"),
+    url("BwModelica-Regular.woff2") format("woff2"),
+    url("BwModelica-Regular.woff") format("woff"),
+    url("BwModelica-Regular.ttf") format("truetype"),
+    url("BwModelica-Regular.svg#BwModelica-Regular") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Font";
+  src: url("Font.eot");
+  src: url("Font.eot?#iefix") format("embedded-opentype"),
+    url("Font.woff2") format("woff2"), url("Font.woff") format("woff"),
+    url("Font.ttf") format("truetype"), url("Font.svg#Font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bw Modelica Medium";
+  src: url("BwModelica-Medium.eot");
+  src: url("BwModelica-Medium.eot?#iefix") format("embedded-opentype"),
+    url("BwModelica-Medium.woff2") format("woff2"),
+    url("BwModelica-Medium.woff") format("woff"),
+    url("BwModelica-Medium.ttf") format("truetype"),
+    url("BwModelica-Medium.svg#BwModelica-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

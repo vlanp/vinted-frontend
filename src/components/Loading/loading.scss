@@ -1,0 +1,21 @@
+.loading {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  justify-content: center;
+  height: calc(100%);
+  .loading-icon {
+    animation: circle 4s linear infinite;
+    width: fit-content;
+  }
+  @keyframes circle {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

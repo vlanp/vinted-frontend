@@ -1,7 +1,22 @@
+@import "./assets//fonts//font.css";
 * {
   box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-family: "Bw Modelica Regular";
+  font-size: 1.6rem;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #2baeb7;
+  border-radius: 5px;
+  font-family: "Bw Modelica Regular";
+  background-color: #2baeb7;
+  font-size: 1.6rem;
 }/*# sourceMappingURL=App.css.map */

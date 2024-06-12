@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+header > div {
+  display: flex;
+  gap: 2rem;
+}
+header img {
+  height: 4rem;
+}/*# sourceMappingURL=header.css.map */

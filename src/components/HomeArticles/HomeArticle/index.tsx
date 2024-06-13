@@ -1,21 +1,8 @@
 import "./homeArticle.css";
-import { Offer } from "../../../interfaces/DatasOffers";
+import { Detail, Offer } from "../../../interfaces/DatasOffers";
 import { Link } from "react-router-dom";
 
 const HomeArticle = ({ offer }: { offer: Offer }) => {
-  const keySize = "TAILLE";
-  const sizeDetail = offer.product_details.find((detail) => {
-    return keySize in detail;
-  });
-  const size = sizeDetail && keySize in sizeDetail ? sizeDetail.TAILLE : null;
-
-  const keyBrand = "MARQUE";
-  const brandDetail = offer.product_details.find((detail) => {
-    return keyBrand in detail;
-  });
-  const brand =
-    brandDetail && keyBrand in brandDetail ? brandDetail.MARQUE : null;
-
   return (
     <Link to={"/offers/" + offer._id} className="home-article">
       <div>
@@ -24,8 +11,15 @@ const HomeArticle = ({ offer }: { offer: Offer }) => {
       </div>
       <img src={offer.product_image.secure_url} alt={offer.product_name} />
       <p>{offer.product_price.toFixed(2).replace(".", ",") + " €"}</p>
-      <p>{size}</p>
-      <p>{brand}</p>
+      {offer.product_details
+        .filter((detail) => {
+          const key = Object.keys(detail)[0];
+          return key === Detail.MARQUE || key === Detail.TAILLE;
+        })
+        .map((detail) => {
+          const value = Object.values(detail)[0];
+          return <p>{value}</p>;
+        })}
     </Link>
   );
 };

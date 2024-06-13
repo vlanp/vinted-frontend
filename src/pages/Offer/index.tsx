@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Offer as IOffer } from "../../interfaces/DatasOffers";
 import axios from "axios";
 import Loading from "../../components/Loading";
-import Detail, { TDetail } from "../../enums/Detail";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,21 +21,6 @@ const Offer = () => {
     fetchData();
   }, [id]);
 
-  const getDetail = (detail: TDetail) => {
-    const searchedDetail = data?.product_details.find((_detail) => {
-      return detail in _detail;
-    });
-    const detailValue = searchedDetail ? searchedDetail[detail] : null;
-    return detailValue;
-  };
-
-  const brand = getDetail(Detail.MARQUE);
-  const size = getDetail(Detail.TAILLE);
-  const condition = getDetail(Detail.ETAT);
-  const color = getDetail(Detail.COULEUR);
-  const localisation = getDetail(Detail.EMPLACEMENT);
-  const paiement = getDetail(Detail.PAIEMENT);
-
   return (
     <main className="offer-overview">
       {isLoading ? (
@@ -52,42 +36,18 @@ const Offer = () => {
           <aside>
             <p>{data?.product_price.toFixed(2).replace(".", ",") + " €"}</p>
             <div className="details">
-              {brand ? (
-                <div>
-                  <p>MARQUE</p>
-                  <p>{brand}</p>
-                </div>
-              ) : null}
-              {size ? (
-                <div>
-                  <p>TAILLE</p>
-                  <p>{size}</p>
-                </div>
-              ) : null}
-              {condition ? (
-                <div>
-                  <p>ETAT</p>
-                  <p>{condition}</p>
-                </div>
-              ) : null}
-              {color ? (
-                <div>
-                  <p>COULEUR</p>
-                  <p>{color}</p>
-                </div>
-              ) : null}
-              {localisation ? (
-                <div>
-                  <p>EMPLACEMENT</p>
-                  <p>{localisation}</p>
-                </div>
-              ) : null}
-              {paiement ? (
-                <div>
-                  <p>PAIEMENT</p>
-                  <p>{paiement}</p>
-                </div>
-              ) : null}
+              {data?.product_details.map((detail) => {
+                const key = Object.keys(detail)[0];
+                const value = Object.values(detail)[0];
+                return (
+                  <>
+                    <div>
+                      <p>{key}</p>
+                      <p>{value}</p>
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="general-information">
               <p>{data?.product_name}</p>

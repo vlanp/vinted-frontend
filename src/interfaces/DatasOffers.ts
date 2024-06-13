@@ -1,3 +1,4 @@
+import { TDetail } from "../enums/Detail";
 import Offer from "../pages/Offer";
 
 interface DatasOffers {
@@ -10,26 +11,9 @@ interface Offer {
   product_name: string;
   product_description: string;
   product_price: number;
-  product_details: [
-    {
-      MARQUE?: string;
-    },
-    {
-      TAILLE?: string;
-    },
-    {
-      ETAT?: string;
-    },
-    {
-      COULEUR?: string;
-    },
-    {
-      EMPLACEMENT?: string;
-    },
-    {
-      "MODE DE PAIEMENT"?: string;
-    }
-  ];
+  product_details: Array<{
+    [Detail in TDetail]: string;
+  }>;
   product_pictures: Array<Picture>;
   owner: Owner;
   product_image: Picture;

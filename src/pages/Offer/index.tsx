@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Offer as IOffer } from "../../interfaces/DatasOffers";
 import axios from "axios";
 import Loading from "../../components/Loading";
-import Detail from "../../enums/Detail";
+import Detail, { TDetail } from "../../enums/Detail";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,14 +22,11 @@ const Offer = () => {
     fetchData();
   }, [id]);
 
-  const getDetail = (detail: Detail) => {
+  const getDetail = (detail: TDetail) => {
     const searchedDetail = data?.product_details.find((_detail) => {
       return detail in _detail;
     });
-    const detailValue =
-      searchedDetail && detail in searchedDetail
-        ? searchedDetail[detail]
-        : null;
+    const detailValue = searchedDetail ? searchedDetail[detail] : null;
     return detailValue;
   };
 
@@ -38,7 +35,7 @@ const Offer = () => {
   const condition = getDetail(Detail.ETAT);
   const color = getDetail(Detail.COULEUR);
   const localisation = getDetail(Detail.EMPLACEMENT);
-  const paiement = getDetail(Detail["MODE DE PAIEMENT"]);
+  const paiement = getDetail(Detail.PAIEMENT);
 
   return (
     <main className="offer-overview">
@@ -81,7 +78,7 @@ const Offer = () => {
               ) : null}
               {localisation ? (
                 <div>
-                  <p>Emplacement</p>
+                  <p>EMPLACEMENT</p>
                   <p>{localisation}</p>
                 </div>
               ) : null}

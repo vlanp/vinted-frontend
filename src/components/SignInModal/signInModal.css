@@ -10,13 +10,14 @@
   align-items: center;
 }
 .sign-in-modal form {
+  position: relative;
   background-color: white;
   width: 35rem;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
   padding: 4rem 0;
 }
@@ -32,4 +33,19 @@
 }
 .sign-in-modal form button {
   color: white;
+}
+.sign-in-modal form .close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+.sign-in-modal form .close:hover {
+  cursor: pointer;
+}
+.sign-in-modal form .connection-error {
+  color: red;
+  font-size: 1.4rem;
+}
+.sign-in-modal form > div:last-child p {
+  font-size: 1.4rem;
 }/*# sourceMappingURL=signInModal.css.map */

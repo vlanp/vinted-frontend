@@ -1,16 +1,28 @@
-import { FormEvent, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import "./signUp.css";
 import axios from "axios";
 import { AxiosError } from "axios";
 import Cookies from "js-cookie";
 import MyError from "../../interfaces/MyError";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({
+  userToken,
+  setUserToken,
+}: {
+  userToken: string | undefined;
+  setUserToken: Dispatch<SetStateAction<string | undefined>>;
+}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+
+  const navigate = useNavigate();
+  {
+    userToken && navigate("/");
+  }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,6 +48,7 @@ const SignUp = () => {
         json
       );
       Cookies.set("userToken", response.data.token);
+      setUserToken(response.data.token);
     } catch (error: unknown) {
       const _error = error as AxiosError;
       console.log({

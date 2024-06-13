@@ -9,12 +9,13 @@
   justify-content: center;
   align-items: center;
   form {
+    position: relative;
     background-color: white;
     width: 35rem;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     padding: 4rem 0;
     > div {
@@ -29,6 +30,23 @@
     }
     button {
       color: white;
+    }
+    .close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .connection-error {
+      color: red;
+      font-size: 1.4rem;
+    }
+    > div:last-child {
+      p {
+        font-size: 1.4rem;
+      }
     }
   }
 }

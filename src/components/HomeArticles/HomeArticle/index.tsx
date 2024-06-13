@@ -17,8 +17,9 @@ const HomeArticle = ({ offer }: { offer: Offer }) => {
           return key === Detail.MARQUE || key === Detail.TAILLE;
         })
         .map((detail) => {
+          const key = Object.keys(detail)[0];
           const value = Object.values(detail)[0];
-          return <p>{value}</p>;
+          return <p key={key}>{value}</p>;
         })}
     </Link>
   );

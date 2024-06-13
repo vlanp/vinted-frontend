@@ -3,10 +3,44 @@ header {
   justify-content: space-evenly;
   padding: 10px 0;
 }
-header > div {
+header img {
+  height: 4rem;
+}
+header button {
+  height: 100%;
+  width: 14rem;
+  font-size: 1.4rem;
+}
+header button:hover {
+  cursor: pointer;
+}
+header .connection {
   display: flex;
   gap: 2rem;
 }
-header img {
-  height: 4rem;
+header .connection button {
+  background-color: white;
+  color: #2baeb7;
+}
+header .sell button {
+  color: white;
+}
+header .search {
+  padding: 0 0.5rem;
+  width: 35%;
+  background-color: #f5f6f7;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+}
+header .search input {
+  flex: 1;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+}
+header .search input:focus {
+  outline: none;
 }/*# sourceMappingURL=header.css.map */

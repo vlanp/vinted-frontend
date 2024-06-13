@@ -1,5 +1,3 @@
-import Offer from "../pages/Offer";
-
 interface DatasOffers {
   count: number;
   offers: Array<Offer>;

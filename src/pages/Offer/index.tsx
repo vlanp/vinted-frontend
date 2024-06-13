@@ -12,7 +12,7 @@ const Offer = () => {
   const id = useParams().id;
 
   useEffect(() => {
-    const url = import.meta.env.VITE_VINTED_API_URL + "/offers/" + id;
+    const url = import.meta.env.VITE_VINTED_API_URL + "/v2/offers/" + id;
     const fetchData = async () => {
       const response = await axios.get(url);
       setData(response.data);
@@ -41,7 +41,7 @@ const Offer = () => {
                 const value = Object.values(detail)[0];
                 return (
                   <>
-                    <div>
+                    <div key={key}>
                       <p>{key}</p>
                       <p>{value}</p>
                     </div>

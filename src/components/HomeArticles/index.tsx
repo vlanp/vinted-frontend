@@ -10,7 +10,7 @@ const HomeArticles = () => {
   const [data, setData] = useState<DatasOffers>();
 
   useEffect(() => {
-    const url = import.meta.env.VITE_VINTED_API_URL + "/offers";
+    const url = import.meta.env.VITE_VINTED_API_URL + "/v2/offers";
     const fetchData = async () => {
       const response = await axios.get(url);
       setData(response.data);

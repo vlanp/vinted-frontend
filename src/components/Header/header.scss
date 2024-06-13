@@ -1,12 +1,51 @@
+$blue-green: #2baeb7;
+$beige: #f5f6f7;
+
 header {
   display: flex;
   justify-content: space-evenly;
   padding: 10px 0;
-  > div {
-    display: flex;
-    gap: 2rem;
-  }
   img {
     height: 4rem;
+  }
+  button {
+    height: 100%;
+    width: 14rem;
+    font-size: 1.4rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .connection {
+    display: flex;
+    gap: 2rem;
+    button {
+      background-color: white;
+      color: $blue-green;
+    }
+  }
+  .sell {
+    button {
+      color: white;
+    }
+  }
+  .search {
+    padding: 0 0.5rem;
+    width: 35%;
+    background-color: $beige;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 5px;
+    input {
+      flex: 1;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      font-size: 1.6rem;
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }

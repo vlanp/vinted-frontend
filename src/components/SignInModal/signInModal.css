@@ -1,0 +1,35 @@
+.sign-in-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-in-modal form {
+  background-color: white;
+  width: 35rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 0;
+}
+.sign-in-modal form > div {
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sign-in-modal form input,
+.sign-in-modal form button {
+  height: 4rem;
+}
+.sign-in-modal form button {
+  color: white;
+}/*# sourceMappingURL=signInModal.css.map */

@@ -16,7 +16,7 @@ header button:hover {
 }
 header .connection {
   display: flex;
-  gap: 2rem;
+  gap: 1vw;
 }
 header .connection button {
   background-color: white;

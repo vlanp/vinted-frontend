@@ -19,4 +19,9 @@ button {
   font-family: "Bw Modelica Regular";
   background-color: #2baeb7;
   font-size: 1.6rem;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
 }/*# sourceMappingURL=App.css.map */

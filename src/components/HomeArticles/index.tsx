@@ -20,7 +20,7 @@ const HomeArticles = () => {
   }, []);
 
   return (
-    <section className="home-articles">
+    <section className="home-articles container">
       {isLoading ? (
         <Loading />
       ) : (

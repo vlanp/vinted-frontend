@@ -1,6 +1,6 @@
 .home-article {
   border: 1px solid red;
-  width: 18%;
+  width: 19%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   border-radius: 50%;
 }
 .home-article > img {
-  width: 80%;
+  width: 100%;
   aspect-ratio: 0.65;
   -o-object-fit: cover;
      object-fit: cover;

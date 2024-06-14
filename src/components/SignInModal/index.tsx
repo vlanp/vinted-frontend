@@ -8,12 +8,10 @@ import MyError from "../../interfaces/MyError";
 const SignInModal = ({
   signInModal,
   setSignInModal,
-  userToken,
   setUserToken,
 }: {
   signInModal: boolean;
   setSignInModal: Dispatch<SetStateAction<boolean>>;
-  userToken: string | undefined;
   setUserToken: Dispatch<SetStateAction<string | undefined>>;
 }) => {
   const [email, setEmail] = useState("");

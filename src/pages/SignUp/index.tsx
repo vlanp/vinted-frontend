@@ -100,22 +100,13 @@ const SignUp = ({
         </div>
         <div>
           <p>
-            {newsletter ? (
-              <input
-                type="checkbox"
-                checked
-                onClick={() => {
-                  setNewsletter(!newsletter);
-                }}
-              />
-            ) : (
-              <input
-                type="checkbox"
-                onClick={() => {
-                  setNewsletter(!newsletter);
-                }}
-              />
-            )}
+            <input
+              type="checkbox"
+              checked={newsletter}
+              onClick={() => {
+                setNewsletter(!newsletter);
+              }}
+            />
             S'inscrire à notre newsletter
           </p>
           <p>

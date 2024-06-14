@@ -44,7 +44,6 @@ function App() {
         <SignInModal
           signInModal={signInModal}
           setSignInModal={setSignInModal}
-          userToken={userToken}
           setUserToken={setUserToken}
         />
       )}

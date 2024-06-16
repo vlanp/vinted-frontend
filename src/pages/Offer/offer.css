@@ -1,64 +1,108 @@
 .offer-overview {
-  height: calc(100vh - 6rem);
-  padding: 3rem 2rem;
+  height: calc(100vh - 7rem);
   background-color: #ebedee;
-  border: 1px solid red;
   display: flex;
-  justify-content: space-around;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
-.offer-overview > article {
-  height: 70rem;
+.offer-overview > section {
+  display: flex;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: center;
+  width: 85rem;
+  height: 60rem;
 }
-.offer-overview > article > img {
+.offer-overview > section > img {
   height: 100%;
-  aspect-ratio: 0.75;
   -o-object-fit: cover;
      object-fit: cover;
+  flex: 1;
+  border-radius: 5px 0 0 5px;
 }
-.offer-overview > aside {
+.offer-overview > section > aside {
   background-color: white;
-  padding: 3rem;
-  height: 70rem;
-  aspect-ratio: 0.7;
+  padding: 1rem 3rem;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 0 5px 5px 0;
+  gap: 1rem;
 }
-.offer-overview > aside > p {
+.offer-overview > section > aside > p {
   margin-bottom: 2rem;
+  font-size: 2rem;
 }
-.offer-overview > aside .details {
+.offer-overview > section > aside .details {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-bottom: 8rem;
-  border-bottom: 1px solid lightgrey;
 }
-.offer-overview > aside .details > div {
+.offer-overview > section > aside .details > div {
   display: flex;
   justify-content: space-between;
 }
-.offer-overview > aside .details > div > p {
+.offer-overview > section > aside .details > div > p {
   width: 45%;
-  border: 1px solid green;
 }
-.offer-overview > aside .general-information {
-  margin-top: 8rem;
+.offer-overview > section > aside .details > div > p:first-child {
+  color: #999999;
+}
+.offer-overview > section > aside .details > div > p:last-child {
+  font-family: "Font", sans-serif;
+}
+.offer-overview > section > aside .separation-line {
+  border-bottom: 1px solid lightgrey;
+}
+.offer-overview > section > aside .general-information {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 15rem;
+  gap: 3rem;
 }
-.offer-overview > aside .general-information .seller {
+.offer-overview > section > aside .general-information > p:first-child {
+  font-family: "Bw Modelica Medium", sans-serif;
+  font-size: 2rem;
+}
+.offer-overview > section > aside .general-information > p:last-of-type {
+  color: rgba(0, 0, 0, 0.8);
+}
+.offer-overview > section > aside .general-information .seller {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.offer-overview > aside .general-information .seller > img {
+.offer-overview > section > aside .general-information .seller > img {
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
 }
-.offer-overview > aside > button {
+.offer-overview > section > aside > button {
   width: 100%;
   padding: 1rem;
   color: white;
+}
+
+@media (width < 900px) {
+  .offer-overview {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .offer-overview > section {
+    height: calc(100vh - 12rem);
+    padding: 2rem 0;
+    width: 35rem;
+    flex-direction: column;
+  }
+  .offer-overview > section > img {
+    height: 0%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  .offer-overview > section > aside {
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 0 0 5px 5px;
+  }
 }/*# sourceMappingURL=offer.css.map */

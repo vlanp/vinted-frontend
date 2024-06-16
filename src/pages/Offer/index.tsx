@@ -24,13 +24,9 @@ const Offer = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <>
-          <article>
-            <img
-              src={data?.product_image.secure_url}
-              alt={data?.product_name}
-            />
-          </article>
+        <section>
+          <img src={data?.product_image.secure_url} alt={data?.product_name} />
+
           <aside>
             <p>{data?.product_price.toFixed(2).replace(".", ",") + " €"}</p>
             <div className="details">
@@ -47,6 +43,7 @@ const Offer = () => {
                 );
               })}
             </div>
+            <div className="separation-line"></div>
             <div className="general-information">
               <p>{data?.product_name}</p>
               <p>{data?.product_description}</p>
@@ -57,7 +54,7 @@ const Offer = () => {
             </div>
             <button>Acheter</button>
           </aside>
-        </>
+        </section>
       )}
     </main>
   );

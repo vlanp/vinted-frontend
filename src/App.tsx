@@ -18,8 +18,10 @@ import {
   faSpinner,
   faMagnifyingGlass,
   faXmark,
+  faArrowUp,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faSpinner, faMagnifyingGlass, faXmark);
+library.add(faSpinner, faMagnifyingGlass, faXmark, faArrowUp, faArrowDown);
 
 function App() {
   const [signInModal, setSignInModal] = useState(false);

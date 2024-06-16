@@ -1,0 +1,51 @@
+.custom-asc-desc-button {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.custom-asc-desc-button .skel {
+  background-color: #2baeb7;
+}
+.custom-asc-desc-button .round {
+  background-color: white;
+  border: 0.5px solid rgba(0, 0, 0, 0.6);
+}
+.custom-asc-desc-button .sort-arrow-down {
+  display: none;
+}
+.custom-asc-desc-button:nth-child(1) .activated .round .sort-arrow-up {
+  display: none;
+}
+.custom-asc-desc-button:nth-child(1) .activated .round .sort-arrow-down {
+  display: inherit;
+}
+
+.custom-base {
+  position: relative;
+}
+
+.round {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #d2d1d1;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skel {
+  background-color: #8e8e8e;
+  height: 2rem;
+  width: 4.5rem;
+  border-radius: 2rem;
+}
+
+.activated .round {
+  left: 2.5rem;
+  transition: 1s;
+}/*# sourceMappingURL=sortAscDesc.css.map */

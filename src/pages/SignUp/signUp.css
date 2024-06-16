@@ -1,15 +1,45 @@
 .sign-up > form {
-  padding-top: 6rem;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
-  border: solid 2px blue;
   align-items: center;
+  gap: 1rem;
+}
+.sign-up > form .form-title {
+  font-family: "Bw Modelica Bold", sans-serif;
+  font-size: 2.5rem;
+}
+.sign-up > form .suscribe-newsletter {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+.sign-up > form .suscribe-newsletter > input {
+  transform: scale(2);
+}
+.sign-up > form .signup-condition {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.sign-up > form .confirm-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sign-up > form .confirm-signup button {
+  height: 4rem;
+  color: white;
+}
+.sign-up > form .confirm-signup p {
+  color: #2baeb7;
+  font-size: 1.3rem;
+  text-align: center;
 }
 .sign-up > form > p {
   margin-bottom: 2rem;
 }
 .sign-up > form > div {
-  border: 2px solid red;
   display: flex;
   gap: 1rem;
   width: 30rem;
@@ -20,6 +50,9 @@
 }
 .sign-up > form > div:first-of-type > input {
   height: 4rem;
+  border: none;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+  font-size: 1.6rem;
 }
 .sign-up > form > div:nth-of-type(2) {
   margin-bottom: 2rem;

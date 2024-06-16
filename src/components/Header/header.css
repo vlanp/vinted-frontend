@@ -28,6 +28,11 @@ header > section:first-child .connection button {
   background-color: white;
   color: #2baeb7;
 }
+header > section:first-child .connection .deconnect-button {
+  background-color: red;
+  border: none;
+  color: white;
+}
 header > section:first-child .sell button {
   color: white;
 }

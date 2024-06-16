@@ -21,6 +21,10 @@
   align-items: center;
   padding: 4rem 0;
 }
+.sign-in-modal form .form-title {
+  font-family: "Bw Modelica Bold", sans-serif;
+  font-size: 2.5rem;
+}
 .sign-in-modal form > div {
   width: 25rem;
   display: flex;
@@ -30,6 +34,11 @@
 .sign-in-modal form input,
 .sign-in-modal form button {
   height: 4rem;
+}
+.sign-in-modal form input {
+  border: none;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+  font-size: 1.6rem;
 }
 .sign-in-modal form button {
   color: white;
@@ -46,6 +55,13 @@
   color: red;
   font-size: 1.4rem;
 }
+.sign-in-modal form > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .sign-in-modal form > div:last-child p {
-  font-size: 1.4rem;
+  color: #2baeb7;
+  font-size: 1.3rem;
+  text-align: center;
 }/*# sourceMappingURL=signInModal.css.map */

@@ -26,6 +26,7 @@ const Header = ({
         <div className="connection">
           {userToken ? (
             <button
+              className="deconnect-button"
               onClick={() => {
                 Cookies.remove("userToken");
                 setUserToken(Cookies.get("userToken"));

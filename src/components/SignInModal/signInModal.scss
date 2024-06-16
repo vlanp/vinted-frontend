@@ -1,3 +1,5 @@
+@import "./../../cssVariable/variable.scss";
+
 .sign-in-modal {
   position: fixed;
   top: 0;
@@ -18,6 +20,10 @@
     gap: 3rem;
     align-items: center;
     padding: 4rem 0;
+    .form-title {
+      font-family: "Bw Modelica Bold", sans-serif;
+      font-size: 2.5rem;
+    }
     > div {
       width: 25rem;
       display: flex;
@@ -27,6 +33,11 @@
     input,
     button {
       height: 4rem;
+    }
+    input {
+      border: none;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+      font-size: 1.6rem;
     }
     button {
       color: white;
@@ -44,8 +55,13 @@
       font-size: 1.4rem;
     }
     > div:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
       p {
-        font-size: 1.4rem;
+        color: $blue-green;
+        font-size: 1.3rem;
+        text-align: center;
       }
     }
   }

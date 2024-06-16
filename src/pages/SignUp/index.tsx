@@ -63,7 +63,7 @@ const SignUp = ({
   return (
     <main className="sign-up">
       <form onSubmit={handleSubmit}>
-        <p>S'inscrire</p>
+        <p className="form-title">S'inscrire</p>
         <div>
           <input
             type="text"
@@ -99,7 +99,7 @@ const SignUp = ({
           />
         </div>
         <div>
-          <p>
+          <p className="suscribe-newsletter">
             <input
               type="checkbox"
               checked={newsletter}
@@ -109,13 +109,13 @@ const SignUp = ({
             />
             S'inscrire à notre newsletter
           </p>
-          <p>
-            En m'inscrivant, je confirme avoir li et accepté les Termes &
+          <p className="signup-condition">
+            En m'inscrivant, je confirme avoir lu et accepté les Termes &
             Conditions et Politique de Confidentialité de Vinted. Je confirme
             avoir au moins 18 ans
           </p>
         </div>
-        <div>
+        <div className="confirm-signup">
           <button>S'inscrire</button>
           <p>Tu as déjà un compte ? Connecte-toi !</p>
         </div>

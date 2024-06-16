@@ -61,7 +61,7 @@ const SignInModal = ({
             setSignInModal(!signInModal);
           }}
         />
-        <p>Se connecter</p>
+        <p className="form-title">Se connecter</p>
         <div>
           <input
             type="email"

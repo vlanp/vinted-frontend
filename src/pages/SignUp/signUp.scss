@@ -1,15 +1,47 @@
+@import "./../../cssVariable/variable.scss";
+
 .sign-up {
   > form {
-    padding-top: 6rem;
+    padding-top: 10rem;
     display: flex;
     flex-direction: column;
-    border: solid 2px blue;
     align-items: center;
+    gap: 1rem;
+    .form-title {
+      font-family: "Bw Modelica Bold", sans-serif;
+      font-size: 2.5rem;
+    }
+    .suscribe-newsletter {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: rgba(0, 0, 0, 0.8);
+      > input {
+        transform: scale(2);
+      }
+    }
+    .signup-condition {
+      font-size: 1.3rem;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    .confirm-signup {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      button {
+        height: 4rem;
+        color: white;
+      }
+      p {
+        color: $blue-green;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+    }
     > p {
       margin-bottom: 2rem;
     }
     > div {
-      border: 2px solid red;
       display: flex;
       gap: 1rem;
       width: 30rem;
@@ -18,6 +50,9 @@
         margin-bottom: 2rem;
         > input {
           height: 4rem;
+          border: none;
+          border-bottom: 1px solid rgba(255, 0, 0, 0.4);
+          font-size: 1.6rem;
         }
       }
       &:nth-of-type(2) {

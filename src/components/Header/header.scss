@@ -27,6 +27,11 @@ header {
         background-color: white;
         color: $blue-green;
       }
+      .deconnect-button {
+        background-color: red;
+        border: none;
+        color: white;
+      }
     }
     .sell {
       button {

@@ -27,4 +27,24 @@
   width: 55%;
   color: white;
   padding: 1rem;
+}
+
+@media (width < 900px) {
+  .home-hero {
+    display: flex;
+    justify-content: center;
+  }
+  .home-hero img {
+    height: 30rem;
+    width: 80vw;
+    border-radius: 5px;
+  }
+  .in-home-hero {
+    display: none;
+  }
+}
+@media (width < 700px) {
+  .home-hero img {
+    width: 90vw;
+  }
 }/*# sourceMappingURL=homeHero.css.map */

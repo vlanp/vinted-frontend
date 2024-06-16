@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import "./offer.css";
 import { useEffect, useState } from "react";
 import { Offer as IOffer } from "../../interfaces/DatasOffers";
-import axios from "axios";
 import Loading from "../../components/Loading";
+import fetchData from "../../utils/fetchData";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,13 +12,11 @@ const Offer = () => {
   const id = useParams().id;
 
   useEffect(() => {
-    const url = import.meta.env.VITE_VINTED_API_URL + "/v2/offers/" + id;
-    const fetchData = async () => {
-      const response = await axios.get(url);
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
+    fetchData({
+      endpoint: "/v2/offers/" + id,
+      setData: setData,
+      setIsLoading: setIsLoading,
+    });
   }, [id]);
 
   return (

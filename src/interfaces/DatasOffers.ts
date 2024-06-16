@@ -1,6 +1,6 @@
 interface DatasOffers {
   count: number;
-  offers: Array<Offer>;
+  offers: Array<Offer | FakeOffer>;
 }
 
 interface Offer {
@@ -15,6 +15,10 @@ interface Offer {
   owner: Owner;
   product_image: Picture;
   product_date: Date;
+}
+
+interface FakeOffer {
+  _id: string;
 }
 
 const Detail = {
@@ -44,5 +48,5 @@ interface Account {
 }
 
 export default DatasOffers;
-export type { Offer };
+export type { Offer, FakeOffer };
 export { Detail };

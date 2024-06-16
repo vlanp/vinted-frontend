@@ -1,8 +1,6 @@
 // IMPORT
 @import "./assets//fonts//font.css";
-
-// VARIABLE
-$blue-green: #2baeb7;
+@import "./cssVariable//variable.scss";
 
 // GENERAL
 
@@ -31,4 +29,24 @@ button {
 .container {
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.search {
+  padding: 0 0.5rem;
+  width: 35%;
+  background-color: $beige;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+  input {
+    flex: 1;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+    &:focus {
+      outline: none;
+    }
+  }
 }

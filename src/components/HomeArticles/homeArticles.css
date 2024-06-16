@@ -1,8 +1,16 @@
+@import "./../../cssVariable//variable.css";
 .home-articles {
   padding: 3rem 0;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid green;
   justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, 100px);
   row-gap: 3rem;
+}
+
+@media (width < 900px) {
+  .home-articles {
+    padding: 1.5rem 0;
+    row-gap: 1rem;
+  }
 }/*# sourceMappingURL=homeArticles.css.map */

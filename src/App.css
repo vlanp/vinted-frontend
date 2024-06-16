@@ -24,4 +24,24 @@ button {
 .container {
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.search {
+  padding: 0 0.5rem;
+  width: 35%;
+  background-color: #f5f6f7;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+}
+.search input {
+  flex: 1;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+}
+.search input:focus {
+  outline: none;
 }/*# sourceMappingURL=App.css.map */

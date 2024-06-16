@@ -1,51 +1,97 @@
-$blue-green: #2baeb7;
-$beige: #f5f6f7;
+@import "../../cssVariable//variable.scss";
 
 header {
   display: flex;
-  justify-content: space-evenly;
-  padding: 10px 0;
-  img {
-    height: 4rem;
-  }
-  button {
-    height: 100%;
-    width: 14rem;
-    font-size: 1.4rem;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  .connection {
+  flex-direction: column;
+  height: 7rem;
+  justify-content: center;
+  > section:first-child {
     display: flex;
-    gap: 1vw;
-    button {
-      background-color: white;
-      color: $blue-green;
+    justify-content: space-evenly;
+    height: 60%;
+    img {
+      height: 4rem;
     }
-  }
-  .sell {
     button {
-      color: white;
-    }
-  }
-  .search {
-    padding: 0 0.5rem;
-    width: 35%;
-    background-color: $beige;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 5px;
-    input {
-      flex: 1;
       height: 100%;
-      background-color: transparent;
-      border: none;
-      font-size: 1.6rem;
-      &:focus {
-        outline: none;
+      width: 14rem;
+      font-size: 1.4rem;
+      &:hover {
+        cursor: pointer;
       }
+    }
+    .connection {
+      display: flex;
+      gap: 1vw;
+      button {
+        background-color: white;
+        color: $blue-green;
+      }
+    }
+    .sell {
+      button {
+        color: white;
+      }
+    }
+  }
+  > section:last-child {
+    .show-when-900 {
+      display: none;
+    }
+  }
+}
+
+@media (width < 900px) {
+  header {
+    height: 12rem;
+    justify-content: space-evenly;
+    > section:first-child {
+      height: 35%;
+      .connection {
+        gap: 2vw;
+      }
+      .hide-when-900 {
+        display: none;
+      }
+    }
+    > section:last-child {
+      height: 35%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .show-when-900 {
+        display: block;
+        height: 100%;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (width < 700px) {
+  header {
+    > section:last-child {
+      .show-when-900 {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media (width < 600px) {
+  header {
+    height: 20rem;
+    > section:first-child {
+      flex-wrap: wrap;
+      height: 50%;
+      .header-logo-vinted {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    > section:last-child {
+      height: 20%;
     }
   }
 }

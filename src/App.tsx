@@ -45,7 +45,10 @@ function App() {
           path="/signup"
           element={<SignUp userToken={userToken} setUserToken={setUserToken} />}
         />
-        <Route path="publish" element={<SellArticle />} />
+        <Route
+          path="publish"
+          element={<SellArticle token={userToken || ""} />}
+        />
       </Routes>
       {signInModal && (
         <SignInModal

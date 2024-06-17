@@ -11,6 +11,13 @@
   flex-direction: column;
   gap: 2rem;
 }
+.sell-article > form > button {
+  color: white;
+  height: 5rem;
+}
+.sell-article > form > button:hover {
+  cursor: pointer;
+}
 
 .sell-article-title {
   font-family: "Bw Modelica Bold", sans-serif;
@@ -98,7 +105,7 @@
 .sell-article-details > div,
 .sell-article-paiement > div {
   display: flex;
-  height: 6rem;
+  height: 5rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -131,7 +138,7 @@
           appearance: textfield;
 }
 .sell-article-paiement > p {
-  height: 6rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;

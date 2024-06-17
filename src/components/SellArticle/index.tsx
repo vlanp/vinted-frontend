@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./sellArticle.css";
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
-const SellArticle = () => {
+const SellArticle = ({ token }: { token: string }) => {
   const [picture, setPicture] = useState<File | undefined>();
   const [previewPicture, setPreviewPicture] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -15,12 +16,40 @@ const SellArticle = () => {
   const [price, setPrice] = useState<number | undefined>();
   const [exchange, setExchange] = useState<boolean>(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const formData = new FormData();
-      console.log(event);
-    } catch (error) {}
+
+      const target = event.currentTarget;
+
+      for (let i = 0; i < target.length; i++) {
+        if (target.elements[i].getAttribute("name")) {
+          if (!target.elements[i].value) {
+            return alert("Le formulaire est incomplet");
+          }
+          formData[target.elements[i].getAttribute("name")] =
+            target.elements[i].value;
+        }
+      }
+      console.log(picture);
+
+      formData.append("picture", picture);
+
+      const response = await axios.post(
+        import.meta.env.VITE_VINTED_API_URL + "/offer/publish",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -42,15 +71,17 @@ const SellArticle = () => {
               </>
             ) : (
               <>
-                {" "}
                 <input
                   type="file"
+                  name="picture"
                   onChange={(event) => {
+                    console.log(event);
+
                     if (event.target.files && event.target.files[0]) {
+                      setPicture(event.target.files[0]);
                       setPreviewPicture(
                         URL.createObjectURL(event.target.files[0])
                       );
-                      setPicture(event.target.files[0]);
                     }
                   }}
                 />
@@ -66,6 +97,7 @@ const SellArticle = () => {
             <p>Titre</p>
             <input
               type="text"
+              name="title"
               placeholder="ex: Chemise Sézane verte"
               onChange={(event) => {
                 setTitle(event.target.value);
@@ -77,6 +109,7 @@ const SellArticle = () => {
             <p>Décris ton article</p>
             <input
               type="text"
+              name="description"
               placeholder="ex: porté quelquefois, taille corretement"
               onChange={(event) => {
                 setDescription(event.target.value);
@@ -90,6 +123,7 @@ const SellArticle = () => {
             <p>Marque</p>
             <input
               type="text"
+              name="brand"
               placeholder="ex: Zara"
               onChange={(event) => {
                 setBrand(event.target.value);
@@ -101,6 +135,7 @@ const SellArticle = () => {
             <p>Taille</p>
             <input
               type="text"
+              name="size"
               placeholder="ex: L/40/12"
               onChange={(event) => {
                 setSize(event.target.value);
@@ -112,6 +147,7 @@ const SellArticle = () => {
             <p>Couleur</p>
             <input
               type="text"
+              name="color"
               placeholder="ex: Fushia"
               onChange={(event) => {
                 setColor(event.target.value);
@@ -123,6 +159,7 @@ const SellArticle = () => {
             <p>Etat</p>
             <input
               type="text"
+              name="condition"
               placeholder="Neuf avec étiquette"
               onChange={(event) => {
                 setCondition(event.target.value);
@@ -134,6 +171,7 @@ const SellArticle = () => {
             <p>Lieu</p>
             <input
               type="text"
+              name="city"
               placeholder="ex: Paris"
               onChange={(event) => {
                 setLocation(event.target.value);
@@ -147,6 +185,7 @@ const SellArticle = () => {
             <p>Prix</p>
             <input
               type="number"
+              name="price"
               placeholder="0,00"
               onChange={(event) => {
                 setPrice(Number(event.target.value));
@@ -165,6 +204,7 @@ const SellArticle = () => {
             Je suis intéressé(e) par les échanges
           </p>
         </section>
+        <button>Créer l'offre</button>
       </form>
     </section>
   );

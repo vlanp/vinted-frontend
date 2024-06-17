@@ -46,10 +46,6 @@
     display: none;
   }
 }
-.hide-five-per-row {
-  display: none;
-}
-
 @media (width < 900px) {
   .home-article {
     width: 32%;

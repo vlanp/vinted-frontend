@@ -12,8 +12,11 @@ const HomeArticle = ({
   articleIndex: number;
 }) => {
   console.log(nbArticle);
+
   const limitIfFivePerRow = Math.ceil(nbArticle / 5) * 5;
   const limitIfFourPerRow = Math.ceil(nbArticle / 4) * 4;
+  console.log(limitIfFourPerRow);
+
   const limitIfThreePerRow = Math.ceil(nbArticle / 3) * 3;
   const limitIfTwoPerRow = Math.ceil(nbArticle / 2) * 2;
   const limitIfOnePerRow = nbArticle;

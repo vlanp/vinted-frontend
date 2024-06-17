@@ -10,11 +10,15 @@ const Header = ({
   setSignInModal,
   userToken,
   setUserToken,
+  search,
+  setSearch,
 }: {
   signInModal: boolean;
   setSignInModal: Dispatch<SetStateAction<boolean>>;
   userToken: string | undefined;
   setUserToken: Dispatch<SetStateAction<string | undefined>>;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <header>
@@ -22,7 +26,11 @@ const Header = ({
         <Link to={"/"} className="header-logo-vinted">
           <img src={logoVinted} alt="vinted" />
         </Link>
-        <SearchBar className="hide-when-900" />
+        <SearchBar
+          className="hide-when-900"
+          search={search}
+          setSearch={setSearch}
+        />
         <div className="connection">
           {userToken ? (
             <button
@@ -54,7 +62,11 @@ const Header = ({
         </div>
       </section>
       <section className="container-when-900">
-        <SearchBar className="show-when-900" />
+        <SearchBar
+          className="show-when-900"
+          search={search}
+          setSearch={setSearch}
+        />
       </section>
     </header>
   );

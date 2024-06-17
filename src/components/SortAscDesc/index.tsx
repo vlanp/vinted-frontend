@@ -1,25 +1,30 @@
 import "./sortAscDesc.css";
 import { Dispatch, SetStateAction } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Sort from "../../enums/Sort";
 
 const SortAscDesc = ({
   text,
-  state,
-  setState,
+  sort,
+  setSort,
 }: {
   text: string;
-  state: boolean;
-  setState: Dispatch<SetStateAction<boolean>>;
+  sort: Sort;
+  setSort: Dispatch<SetStateAction<Sort>>;
 }) => {
   return (
     <div
       className="custom-asc-desc-button"
       onClick={() => {
-        setState(!state);
+        setSort(sort === Sort.ASCENDING ? Sort.DESCENDING : Sort.ASCENDING);
       }}
     >
       <p>{text}</p>
-      <div className={"custom-base " + (state ? "activated" : "")}>
+      <div
+        className={
+          "custom-base " + (sort === Sort.ASCENDING ? "" : "activated")
+        }
+      >
         <div className="round">
           <FontAwesomeIcon icon={"arrow-up"} className="sort-arrow-up" />
           <FontAwesomeIcon icon={"arrow-down"} className="sort-arrow-down" />

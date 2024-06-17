@@ -11,11 +11,14 @@ import DatasOffers from "../../interfaces/DatasOffers";
 import useWindowDimensions from "../../utils/getWindowDimensions";
 import { v4 as uuidv4 } from "uuid";
 import PageHandling from "../../components/PageHandling";
+import Sort from "../../enums/Sort";
 
-const Home = () => {
-  const [state, setState] = useState(false);
+const Home = ({ search }: { search: string }) => {
+  const [sort, setSort] = useState<Sort>(Sort.ASCENDING);
   const [values, setValues] = useState<RangeValues>();
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
+  const [allData, setAllData] = useState<DatasOffers>();
   const [data, setData] = useState<DatasOffers>();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -39,12 +42,23 @@ const Home = () => {
   useEffect(() => {
     const fetchDataAndAddFake = async () => {
       const data = await fetchData<DatasOffers>({
-        endpoint: "/v2/offers?page=" + currentPage + "&limit=" + limit,
+        endpoint:
+          "/v2/offers?page=" +
+          currentPage +
+          "&limit=" +
+          limit +
+          "&sort=" +
+          sort +
+          "&priceMin=" +
+          (values?.minValue || 0) +
+          "&priceMax=" +
+          (values?.maxValue || Infinity) +
+          "&title=" +
+          search,
       });
       if (!data) {
         return;
       }
-      console.log(data);
       const dataCopy = { ...data };
       // Création de fausses offres pour gérer l'affichage de la dernière ligne d'offres
       for (let i = 0; i <= 4; i++) {
@@ -54,11 +68,11 @@ const Home = () => {
       data && setIsLoading(false);
     };
     fetchDataAndAddFake();
-  }, [currentPage, limit]);
+  }, [currentPage, limit, sort, values, search]);
 
   let lowerPrice = Infinity;
   let higherPrice = 0;
-  data?.offers.forEach((value) => {
+  allData?.offers.forEach((value) => {
     if (!("product_name" in value)) {
       return;
     }
@@ -73,18 +87,22 @@ const Home = () => {
     higherPrice += higherPrice === lowerPrice ? 5 : 0;
   });
 
+  useEffect(() => {
+    fetchData({
+      endpoint: "/v2/offers?",
+      setData: setAllData,
+      setIsLoading: setIsLoading2,
+    });
+  }, []);
+
   return (
     <main>
-      {isLoading ? (
+      {isLoading || isLoading2 ? (
         <Loading />
       ) : (
         <>
           <section className="home-filter-section">
-            <SortAscDesc
-              text="Trier par prix:"
-              state={state}
-              setState={setState}
-            />
+            <SortAscDesc text="Trier par prix:" sort={sort} setSort={setSort} />
             <FilterRange
               values={values || { minValue: lowerPrice, maxValue: higherPrice }}
               setValues={setValues}

@@ -26,6 +26,7 @@ library.add(faSpinner, faMagnifyingGlass, faXmark, faArrowUp, faArrowDown);
 function App() {
   const [signInModal, setSignInModal] = useState(false);
   const [userToken, setUserToken] = useState(Cookies.get("userToken"));
+  const [search, setSearch] = useState("");
   return (
     <Router>
       <Header
@@ -33,9 +34,11 @@ function App() {
         setSignInModal={setSignInModal}
         userToken={userToken}
         setUserToken={setUserToken}
+        search={search}
+        setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home search={search} />} />
         <Route path="/offers/:id" element={<Offer />} />
         <Route
           path="/signup"

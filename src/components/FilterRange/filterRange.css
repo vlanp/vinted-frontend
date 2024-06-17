@@ -1,1 +1,31 @@
-/*# sourceMappingURL=filterRange.css.map */
+.filter-range-track {
+  height: 0.5rem;
+  width: 30rem;
+  border-radius: 5px;
+  background-color: #ccc;
+}
+
+.filter-range-thumb {
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: #2baeb7;
+}
+
+.thumb-current-value {
+  padding: 0.3rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  background-color: #2baeb7;
+  color: white;
+  position: absolute;
+  top: -2.2rem;
+  left: -0.7rem;
+}
+
+.filter-range {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}/*# sourceMappingURL=filterRange.css.map */

@@ -1,19 +1,7 @@
-@import "./../../cssVariable/variable.scss";
-
 .home-filter-section {
   display: flex;
-}
-
-.filter-range-track {
-  height: 0.5rem;
-  width: 30rem;
-  border-radius: 5px;
-  background-color: #ccc;
-}
-
-.filter-range-thumb {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  background-color: $blue-green;
+  align-items: center;
+  height: 6rem;
+  justify-content: center;
+  gap: 2rem;
 }

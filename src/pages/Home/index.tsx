@@ -30,11 +30,14 @@ const Home = () => {
       return;
     }
     if (value.product_price > higherPrice) {
+      console.log(value.product_price);
       higherPrice = value.product_price;
     }
     if (value.product_price < lowerPrice) {
       lowerPrice = value.product_price;
     }
+    lowerPrice = Math.floor(lowerPrice / 5) * 5;
+    higherPrice = Math.ceil(higherPrice / 5) * 5;
   });
 
   return (
@@ -54,6 +57,7 @@ const Home = () => {
               setValues={setValues}
               minRange={lowerPrice}
               maxRange={higherPrice}
+              text="Prix entre:"
             />
           </section>
           <HomeHero />

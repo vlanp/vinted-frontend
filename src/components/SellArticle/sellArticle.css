@@ -1,0 +1,142 @@
+.sell-article {
+  height: calc(100vh - 7rem);
+  background-color: #ebedee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sell-article > form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sell-article-title {
+  font-family: "Bw Modelica Bold", sans-serif;
+  font-size: 2.5rem;
+}
+
+.sell-article-picture {
+  background-color: white;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(128, 128, 128, 0.6);
+}
+.sell-article-picture > div {
+  position: relative;
+  height: calc(100% - 2rem);
+  width: calc(100% - 2rem);
+  border: 1px dashed #2baeb7;
+  display: flex;
+}
+.sell-article-picture > div img {
+  padding: 0.5rem;
+  height: 100%;
+  max-width: 40%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.sell-article-picture > div input {
+  position: absolute;
+  top: calc((100% - 5rem) / 2);
+  left: calc((100% - 20rem) / 2);
+  border: none;
+  width: 20rem;
+  height: 5rem;
+}
+.sell-article-picture > div input::-webkit-file-upload-button {
+  border: 1px solid #2baeb7;
+  border-radius: 5px;
+  width: 20rem;
+  height: 5rem;
+  background-color: white;
+  color: transparent;
+}
+.sell-article-picture > div input::-webkit-file-upload-button:hover {
+  cursor: pointer;
+}
+.sell-article-picture > div > p {
+  pointer-events: none;
+  position: absolute;
+  top: calc((100% - 3rem) / 2);
+  left: calc((100% - 17rem) / 2);
+  color: #2baeb7;
+  font-family: "Bw Modelica Medium", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sell-article-picture > div > p span {
+  font-size: 3rem;
+}
+.sell-article-picture > div .sell-article-delete-picture {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 2rem;
+}
+.sell-article-picture > div .sell-article-delete-picture:hover {
+  cursor: pointer;
+}
+
+.sell-article-article,
+.sell-article-details,
+.sell-article-paiement {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.6);
+}
+.sell-article-article > div,
+.sell-article-details > div,
+.sell-article-paiement > div {
+  display: flex;
+  height: 6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.sell-article-article > div:not(:last-of-type),
+.sell-article-details > div:not(:last-of-type),
+.sell-article-paiement > div:not(:last-of-type) {
+  border-bottom: 1px solid lightgray;
+}
+.sell-article-article > div input,
+.sell-article-details > div input,
+.sell-article-paiement > div input {
+  border: none;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  width: 30rem;
+  border-bottom: 1px solid #999999;
+}
+
+.sell-article-paiement > div input {
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.sell-article-paiement > div input::-webkit-outer-spin-button, .sell-article-paiement > div input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.sell-article-paiement > div input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+}
+.sell-article-paiement > p {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.sell-article-paiement > p > input {
+  transform: scale(2);
+}/*# sourceMappingURL=sellArticle.css.map */

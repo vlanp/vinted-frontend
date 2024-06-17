@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
 import Cookies from "js-cookie";
 import SearchBar from "../SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({
   signInModal,
@@ -20,6 +21,7 @@ const Header = ({
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
 }) => {
+  const navigate = useNavigate();
   return (
     <header>
       <section className="container-when-900">
@@ -58,7 +60,13 @@ const Header = ({
           )}
         </div>
         <div className="sell">
-          <button>Vends tes articles</button>
+          <button
+            onClick={() => {
+              userToken ? navigate("/publish") : setSignInModal(!signInModal);
+            }}
+          >
+            Vends tes articles
+          </button>
         </div>
       </section>
       <section className="container-when-900">

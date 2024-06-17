@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
+import SellArticle from "./components/SellArticle";
 
 // Components
 import Header from "./components/Header";
@@ -44,6 +45,7 @@ function App() {
           path="/signup"
           element={<SignUp userToken={userToken} setUserToken={setUserToken} />}
         />
+        <Route path="publish" element={<SellArticle />} />
       </Routes>
       {signInModal && (
         <SignInModal

@@ -45,7 +45,12 @@ header > section:last-child .show-when-900 {
     height: 12rem;
     justify-content: space-evenly;
   }
+  header .container-when-900 {
+    width: 90%;
+    margin: 0 auto;
+  }
   header > section:first-child {
+    justify-content: space-between;
     height: 35%;
   }
   header > section:first-child .connection {
@@ -63,21 +68,17 @@ header > section:last-child .show-when-900 {
   header > section:last-child .show-when-900 {
     display: block;
     height: 100%;
-    width: 80%;
+    width: 100%;
   }
 }
-@media (width < 700px) {
-  header > section:last-child .show-when-900 {
-    width: 90%;
-  }
-}
-@media (width < 600px) {
+@media (width < 640px) {
   header {
-    height: 20rem;
+    height: 16rem;
+    justify-content: space-around;
   }
   header > section:first-child {
     flex-wrap: wrap;
-    height: 50%;
+    height: 60%;
   }
   header > section:first-child .header-logo-vinted {
     width: 100%;
@@ -85,6 +86,6 @@ header > section:last-child .show-when-900 {
     justify-content: center;
   }
   header > section:last-child {
-    height: 20%;
+    height: 24%;
   }
 }/*# sourceMappingURL=header.css.map */

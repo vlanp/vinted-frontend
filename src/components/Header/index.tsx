@@ -18,7 +18,7 @@ const Header = ({
 }) => {
   return (
     <header>
-      <section>
+      <section className="container-when-900">
         <Link to={"/"} className="header-logo-vinted">
           <img src={logoVinted} alt="vinted" />
         </Link>
@@ -53,7 +53,7 @@ const Header = ({
           <button>Vends tes articles</button>
         </div>
       </section>
-      <section>
+      <section className="container-when-900">
         <SearchBar className="show-when-900" />
       </section>
     </header>

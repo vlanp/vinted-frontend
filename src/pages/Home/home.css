@@ -4,4 +4,12 @@
   height: 6rem;
   justify-content: center;
   gap: 2rem;
+}
+
+@media (width < 540px) {
+  .home-filter-section {
+    height: 8rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 }/*# sourceMappingURL=home.css.map */

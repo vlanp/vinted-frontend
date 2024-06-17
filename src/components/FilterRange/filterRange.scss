@@ -31,3 +31,9 @@
   align-items: center;
   gap: 2rem;
 }
+
+@media (width < 640px) {
+  .filter-range-track {
+    width: 20rem;
+  }
+}

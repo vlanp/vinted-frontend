@@ -18,7 +18,7 @@ const fetchData = async <IData>({
   paramsList?: Array<string>;
   queryList?: Array<{ queryName: string; queryValue: string }>;
   body?: object;
-}) => {
+}): Promise<IData> => {
   let url = import.meta.env.VITE_VINTED_API_URL + endpoint;
   paramsList &&
     paramsList.forEach((params) => {
@@ -52,6 +52,7 @@ const fetchData = async <IData>({
   }
   setData && setData(response.data);
   setIsLoading && setIsLoading(false);
+  return response.data;
 };
 
 export default fetchData;

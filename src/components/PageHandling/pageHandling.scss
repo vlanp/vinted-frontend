@@ -1,0 +1,41 @@
+@import "./../../cssVariable/variable.scss";
+
+.page-handling {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  height: 10rem;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.page-number {
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  height: 4rem;
+  min-width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-family: "Bw Modelica Medium", sans-serif;
+  &.page-highlight {
+    color: $orange;
+    border: 3px solid $orange;
+    font-family: "Bw Modelica Bold", sans-serif;
+  }
+  &:not(.page-highlight):hover {
+    cursor: pointer;
+  }
+}
+
+.page-previous-page,
+.page-next-page {
+  font-size: 4rem;
+  &:not(.page-next-previous-disabled) {
+    cursor: pointer;
+  }
+}
+
+.page-next-previous-disabled {
+  color: rgba(0, 0, 0, 0.4);
+}

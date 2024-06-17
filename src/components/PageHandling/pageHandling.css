@@ -1,0 +1,40 @@
+.page-handling {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  height: 10rem;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.page-number {
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  height: 4rem;
+  min-width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-family: "Bw Modelica Medium", sans-serif;
+}
+.page-number.page-highlight {
+  color: #d14600;
+  border: 3px solid #d14600;
+  font-family: "Bw Modelica Bold", sans-serif;
+}
+.page-number:not(.page-highlight):hover {
+  cursor: pointer;
+}
+
+.page-previous-page,
+.page-next-page {
+  font-size: 4rem;
+}
+.page-previous-page:not(.page-next-previous-disabled),
+.page-next-page:not(.page-next-previous-disabled) {
+  cursor: pointer;
+}
+
+.page-next-previous-disabled {
+  color: rgba(0, 0, 0, 0.4);
+}/*# sourceMappingURL=pageHandling.css.map */

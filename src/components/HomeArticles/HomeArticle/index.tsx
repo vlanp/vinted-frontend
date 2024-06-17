@@ -11,10 +11,11 @@ const HomeArticle = ({
   nbArticle: number;
   articleIndex: number;
 }) => {
-  const limitIfFivePerRow = nbArticle + (5 - (nbArticle % 5));
-  const limitIfFourPerRow = nbArticle + (4 - (nbArticle % 4));
-  const limitIfThreePerRow = nbArticle + (3 - (nbArticle % 3));
-  const limitIfTwoPerRow = nbArticle + (2 - (nbArticle % 2));
+  console.log(nbArticle);
+  const limitIfFivePerRow = Math.ceil(nbArticle / 5) * 5;
+  const limitIfFourPerRow = Math.ceil(nbArticle / 4) * 4;
+  const limitIfThreePerRow = Math.ceil(nbArticle / 3) * 3;
+  const limitIfTwoPerRow = Math.ceil(nbArticle / 2) * 2;
   const limitIfOnePerRow = nbArticle;
   const hideIfFivePerRow =
     articleIndex + 1 > limitIfFivePerRow ? " hide-five-per-row" : "";
@@ -30,7 +31,7 @@ const HomeArticle = ({
   return "product_name" in offer ? (
     <Link to={"/offers/" + offer._id} className="home-article">
       <div>
-        <img src={offer.owner.account.avatar.secure_url} alt="avatar" />
+        <img src={offer.owner.account.avatar?.secure_url} alt="avatar" />
         <p>{offer.owner.account.username}</p>
       </div>
       <img src={offer.product_image.secure_url} alt={offer.product_name} />

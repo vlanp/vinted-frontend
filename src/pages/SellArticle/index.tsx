@@ -120,11 +120,7 @@ const SellArticle = ({
                   type="file"
                   name="picture"
                   onChange={(event) => {
-                    console.log(event);
-
                     if (event.target.files && event.target.files[0]) {
-                      console.log(event.target.files[0]);
-
                       setPicture(event.target.files[0]);
                       setPreviewPicture(
                         URL.createObjectURL(event.target.files[0])

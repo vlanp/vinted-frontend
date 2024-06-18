@@ -138,8 +138,7 @@ const SellArticle = ({
           </div>
           <div>
             <p>Décris ton article</p>
-            <input
-              type="text"
+            <textarea
               name="description"
               placeholder="ex: porté quelquefois, taille corretement"
               onChange={(event) => {

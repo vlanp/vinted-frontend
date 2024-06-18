@@ -10,7 +10,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .sell-article > form > button {
   color: white;
@@ -116,13 +116,23 @@
   border-bottom: 1px solid lightgray;
 }
 .sell-article-article > div input,
+.sell-article-article > div textarea,
 .sell-article-details > div input,
-.sell-article-paiement > div input {
+.sell-article-details > div textarea,
+.sell-article-paiement > div input,
+.sell-article-paiement > div textarea {
   border: none;
   padding: 0.5rem 0;
-  font-size: 1.5rem;
   width: 30rem;
+  font-size: 1.5rem;
   border-bottom: 1px solid #999999;
+  font-family: "Bw Modelica Regular", sans-serif;
+}
+.sell-article-article > div textarea,
+.sell-article-details > div textarea,
+.sell-article-paiement > div textarea {
+  height: 80%;
+  resize: none;
 }
 
 .sell-article-paiement > div input {
@@ -147,4 +157,35 @@
 }
 .sell-article-paiement > p > input {
   transform: scale(2);
+}
+
+.sell-article-article > div:last-of-type {
+  height: 10rem;
+}
+
+@media (width < 640px) {
+  .sell-article-article > div,
+  .sell-article-details > div,
+  .sell-article-paiement > div {
+    flex-direction: column;
+    height: 8rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .sell-article-article > div input,
+  .sell-article-details > div input,
+  .sell-article-paiement > div input {
+    text-align: center;
+  }
+  .sell-article-article > div textarea,
+  .sell-article-details > div textarea,
+  .sell-article-paiement > div textarea {
+    height: 9rem;
+  }
+  .sell-article-article > div:last-of-type {
+    height: 14rem;
+  }
+  .sell-article-paiement > p {
+    justify-content: center;
+  }
 }/*# sourceMappingURL=sellArticle.css.map */

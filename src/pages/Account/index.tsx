@@ -59,16 +59,18 @@ const Account = ({ userToken }: { userToken: string }) => {
   }, [userToken]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    console.log("yo");
-
     event.preventDefault();
+    setModifyAvatar(false);
+    setModifyNewsletter(false);
+    setModifyUsername(false);
+    setAvatar(null);
+    setUsername("");
+    setNewsletter(false);
     try {
       const formData = new FormData();
       modifyAvatar && avatar && formData.append("picture", avatar);
       modifyUsername && username && formData.append("username", username);
-      modifyNewsletter &&
-        newsletter &&
-        formData.append("newsletter", newsletter.toString());
+      modifyNewsletter && formData.append("newsletter", newsletter.toString());
       const response = await axios.patch(
         import.meta.env.VITE_VINTED_API_URL + "/user/account",
         formData,
@@ -80,6 +82,7 @@ const Account = ({ userToken }: { userToken: string }) => {
         }
       );
       if (response.data?.username) {
+        console.log(response.data);
         setData(response.data);
       } else {
         setErrorMessage(

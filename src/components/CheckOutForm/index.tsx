@@ -8,10 +8,12 @@ const CheckOutForm = ({
   id,
   completed,
   setCompleted,
+  token,
 }: {
   id: string;
   completed: boolean;
   setCompleted: Dispatch<SetStateAction<boolean>>;
+  token: string;
 }) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -40,6 +42,12 @@ const CheckOutForm = ({
       import.meta.env.VITE_VINTED_API_URL + "/payment",
       {
         id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
       }
     );
 

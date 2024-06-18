@@ -44,4 +44,15 @@ button {
 }
 .search input:focus {
   outline: none;
+}
+
+@media (width < 500px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (width < 400px) {
+  html {
+    font-size: 45%;
+  }
 }/*# sourceMappingURL=App.css.map */

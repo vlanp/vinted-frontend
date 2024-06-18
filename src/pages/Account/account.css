@@ -74,4 +74,10 @@
   background-color: white;
   padding: 2rem;
   text-align: center;
+}
+
+@media (width < 640px) {
+  .my-account form {
+    width: 35rem;
+  }
 }/*# sourceMappingURL=account.css.map */

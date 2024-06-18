@@ -69,6 +69,7 @@ const CheckOut = ({
               id={productId}
               completed={completed}
               setCompleted={setCompleted}
+              token={token}
             />
           </Elements>
         </div>

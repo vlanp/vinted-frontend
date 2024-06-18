@@ -7,7 +7,7 @@ import MyError from "../../interfaces/MyError";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const unacceptedLocation = ["/publish"];
+const unacceptedLocation = ["/publish", "/payment"];
 
 const SignInModal = ({
   signInModal,

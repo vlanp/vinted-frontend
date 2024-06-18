@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { Offer as IOffer } from "../../interfaces/DatasOffers";
 import Loading from "../../components/Loading";
 import fetchData from "../../utils/fetchData";
+import { useNavigate } from "react-router-dom";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<IOffer>();
   const id = useParams().id;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData({
@@ -55,7 +58,19 @@ const Offer = () => {
                 <p>{data?.owner.account.username}</p>
               </div>
             </div>
-            <button>Acheter</button>
+            <button
+              onClick={() => {
+                navigate("/payment", {
+                  state: {
+                    productName: data?.product_name,
+                    productPrice: data?.product_price,
+                    productId: data?._id,
+                  },
+                });
+              }}
+            >
+              Acheter
+            </button>
           </aside>
         </section>
       )}

@@ -1,0 +1,17 @@
+@import "./../../cssVariable/variable.scss";
+
+.check-out-form {
+  > form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    > button {
+      height: 5rem;
+      color: white;
+      background-color: $green;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

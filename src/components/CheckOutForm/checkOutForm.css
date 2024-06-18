@@ -1,0 +1,13 @@
+.check-out-form > form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.check-out-form > form > button {
+  height: 5rem;
+  color: white;
+  background-color: #00c06d;
+}
+.check-out-form > form > button:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=checkOutForm.css.map */

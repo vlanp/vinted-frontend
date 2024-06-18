@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import SellArticle from "./components/SellArticle";
+import CheckOut from "./pages/CheckOut";
 
 // Components
 import Header from "./components/Header";
@@ -46,7 +47,7 @@ function App() {
           element={<SignUp userToken={userToken} setUserToken={setUserToken} />}
         />
         <Route
-          path="publish"
+          path="/publish"
           element={
             <SellArticle
               token={userToken || ""}
@@ -54,6 +55,7 @@ function App() {
             />
           }
         />
+        <Route path="/payment" element={<CheckOut />} />
       </Routes>
       {signInModal && (
         <SignInModal

@@ -20,6 +20,7 @@
      object-fit: cover;
   max-width: 45rem;
   flex: 1;
+  border: 1px solid #ebedee;
   border-radius: 5px 0 0 5px;
 }
 .offer-overview > section > aside {

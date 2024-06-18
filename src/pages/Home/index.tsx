@@ -3,7 +3,7 @@ import HomeHero from "../../components/HomeHero";
 import HomeArticles from "../../components/HomeArticles";
 import SortAscDesc from "../../components/SortAscDesc";
 import FilterRange from "../../components/FilterRange";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import RangeValues from "../../interfaces/RangeValues";
 import fetchData from "../../utils/fetchData";
 import Loading from "../../components/Loading";
@@ -21,7 +21,6 @@ const Home = ({ search }: { search: string }) => {
   const [allData, setAllData] = useState<DatasOffers>();
   const [data, setData] = useState<DatasOffers>();
   const [currentPage, setCurrentPage] = useState(1);
-  const firstUpdate = useRef(true);
 
   const { width } = useWindowDimensions();
 
@@ -41,38 +40,34 @@ const Home = ({ search }: { search: string }) => {
   const maxPage = data ? Math.ceil(data.count / limit) : 0;
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-    } else {
-      const fetchDataAndAddFake = async () => {
-        const data = await fetchData<DatasOffers>({
-          endpoint:
-            "/offers?page=" +
-            currentPage +
-            "&limit=" +
-            limit +
-            "&sort=" +
-            sort +
-            "&priceMin=" +
-            (values?.minValue || 0) +
-            "&priceMax=" +
-            (values?.maxValue || Infinity) +
-            "&title=" +
-            search,
-        });
-        if (!data) {
-          return;
-        }
-        const dataCopy = { ...data };
-        // Création de fausses offres pour gérer l'affichage de la dernière ligne d'offres
-        for (let i = 0; i <= 4; i++) {
-          dataCopy.offers.push({ _id: uuidv4() });
-        }
-        dataCopy && setData(dataCopy);
-        data && setIsLoading(false);
-      };
-      fetchDataAndAddFake();
-    }
+    const fetchDataAndAddFake = async () => {
+      const data = await fetchData<DatasOffers>({
+        endpoint:
+          "/offers?page=" +
+          currentPage +
+          "&limit=" +
+          limit +
+          "&sort=" +
+          sort +
+          "&priceMin=" +
+          (values?.minValue || 0) +
+          "&priceMax=" +
+          (values?.maxValue || Infinity) +
+          "&title=" +
+          search,
+      });
+      if (!data) {
+        return;
+      }
+      const dataCopy = { ...data };
+      // Création de fausses offres pour gérer l'affichage de la dernière ligne d'offres
+      for (let i = 0; i <= 4; i++) {
+        dataCopy.offers.push({ _id: uuidv4() });
+      }
+      dataCopy && setData(dataCopy);
+      data && setIsLoading(false);
+    };
+    fetchDataAndAddFake();
   }, [currentPage, limit, sort, values, search]);
 
   let lowerPrice = 100;

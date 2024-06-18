@@ -19,6 +19,8 @@ const fetchData = async <IData>({
   queryList?: Array<{ queryName: string; queryValue: string }>;
   body?: object;
 }): Promise<IData> => {
+  console.log(import.meta.env.VITE_VINTED_API_URL + endpoint);
+
   let url = import.meta.env.VITE_VINTED_API_URL + endpoint;
   paramsList &&
     paramsList.forEach((params) => {
@@ -50,6 +52,8 @@ const fetchData = async <IData>({
     case RequestMethod.PUT:
       response = await axios.put(url, body);
   }
+  console.log(response.data);
+  response.data;
   setData && setData(response.data);
   setIsLoading && setIsLoading(false);
   return response.data;

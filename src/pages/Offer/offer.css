@@ -79,6 +79,8 @@
 .offer-overview > section > aside .general-information .seller > img {
   height: 5rem;
   width: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 .offer-overview > section > aside > button {

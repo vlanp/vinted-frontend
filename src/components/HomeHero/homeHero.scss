@@ -25,6 +25,9 @@
     width: 55%;
     color: white;
     padding: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

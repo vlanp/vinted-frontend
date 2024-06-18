@@ -3,10 +3,18 @@ import CheckOutForm from "../../components/CheckOutForm";
 import { StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useLocation } from "react-router-dom";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-const CheckOut = () => {
+const CheckOut = ({
+  token,
+  setSignInModal,
+}: {
+  token: string;
+  setSignInModal: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const [completed, setCompleted] = useState<boolean>(false);
   const { productPrice, productName } = useLocation().state;
   const protectionFees = productPrice / 10;
   const deliveryFees = productPrice / 5;
@@ -16,7 +24,12 @@ const CheckOut = () => {
     amount: Number((total * 100).toFixed(0)),
     currency: "eur",
   };
-  return (
+
+  useEffect(() => {
+    token || setSignInModal(true);
+  }, [token, setSignInModal]);
+
+  return token ? (
     <section className="check-out">
       <div>
         <div className="check-out-summary">
@@ -41,20 +54,29 @@ const CheckOut = () => {
             <p>Total</p>
             <p>{total.toFixed(2).replace(".", ",") + " €"}</p>
           </div>
-          <p>
-            Il ne vous reste plus qu'une étape pour vous offrir{" "}
-            <span>{productName}</span>. Vous allez payer{" "}
-            <span>{productPrice} €</span> (frais de protection et frais de port
-            inclus).
-          </p>
+          {!completed && (
+            <p>
+              Il ne vous reste plus qu'une étape pour vous offrir{" "}
+              <span>{productName}</span>. Vous allez payer{" "}
+              <span>{productPrice} €</span> (frais de protection et frais de
+              port inclus).
+            </p>
+          )}
         </div>
         <div className="check-out-stripe">
           <Elements stripe={stripePromise} options={options}>
-            <CheckOutForm title={productName} amount={total} />
+            <CheckOutForm
+              title={productName}
+              amount={total}
+              completed={completed}
+              setCompleted={setCompleted}
+            />
           </Elements>
         </div>
       </div>
     </section>
+  ) : (
+    <></>
   );
 };
 

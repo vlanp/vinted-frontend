@@ -9,9 +9,18 @@
       height: 5rem;
       color: white;
       background-color: $green;
-      &:hover {
+      &:hover:not(:disabled) {
         cursor: pointer;
+      }
+      &:disabled {
+        background-color: $light-grey;
+        border: none;
       }
     }
   }
+}
+
+.check-out-form-succeed {
+  font-family: "Bw Modelica Bold", sans-serif;
+  text-align: center;
 }

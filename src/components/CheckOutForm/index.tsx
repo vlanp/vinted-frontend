@@ -1,20 +1,28 @@
 import { useElements, useStripe } from "@stripe/react-stripe-js";
 import "./checkOutForm.css";
 import { PaymentElement } from "@stripe/react-stripe-js";
-import { FormEvent, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import axios from "axios";
 
-const CheckOutForm = ({ title, amount }: { title: string; amount: number }) => {
+const CheckOutForm = ({
+  title,
+  amount,
+  completed,
+  setCompleted,
+}: {
+  title: string;
+  amount: number;
+  completed: boolean;
+  setCompleted: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [completed, setCompleted] = useState<boolean>(false);
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    console.log("yo");
-
     event.preventDefault();
 
     setIsLoading(true);
@@ -40,8 +48,6 @@ const CheckOutForm = ({ title, amount }: { title: string; amount: number }) => {
 
     const clientSecret = response.data.client_secret;
 
-    console.log(clientSecret);
-
     const stripeResponse = await stripe?.confirmPayment({
       elements,
       clientSecret,
@@ -59,7 +65,7 @@ const CheckOutForm = ({ title, amount }: { title: string; amount: number }) => {
   };
 
   return completed ? (
-    <p>Paiement effectué</p>
+    <p className="check-out-form-succeed">Merci pour votre achat</p>
   ) : (
     <section className="check-out-form">
       <form onSubmit={handleSubmit}>

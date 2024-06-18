@@ -95,7 +95,14 @@ const SignInModal = ({
         )}
         <div>
           <button>Se connecter</button>
-          <p>Pas encore de compte ? Inscris-toi !</p>
+          <p
+            onClick={() => {
+              setSignInModal(false);
+              navigate("/signup");
+            }}
+          >
+            Pas encore de compte ? Inscris-toi !
+          </p>
         </div>
       </form>
     </section>

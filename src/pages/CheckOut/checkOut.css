@@ -49,6 +49,9 @@
   justify-content: space-between;
   font-family: "Bw Modelica Bold", sans-serif;
 }
+.check-out-total > p {
+  line-height: 2rem;
+}
 .check-out-total > p span {
   font-family: "Bw Modelica Bold", sans-serif;
 }

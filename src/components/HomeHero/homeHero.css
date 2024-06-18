@@ -28,6 +28,9 @@
   color: white;
   padding: 1rem;
 }
+.in-home-hero button:hover {
+  cursor: pointer;
+}
 
 @media (width < 900px) {
   .home-hero {

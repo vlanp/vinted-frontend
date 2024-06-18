@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 const SignUp = ({
   userToken,
   setUserToken,
+  setSignInModal,
 }: {
   userToken: string | undefined;
   setUserToken: Dispatch<SetStateAction<string | undefined>>;
+  setSignInModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -20,9 +22,8 @@ const SignUp = ({
   const [newsletter, setNewsletter] = useState(false);
 
   const navigate = useNavigate();
-  {
-    userToken && navigate("/");
-  }
+
+  userToken && navigate("/");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -117,7 +118,13 @@ const SignUp = ({
         </div>
         <div className="confirm-signup">
           <button>S'inscrire</button>
-          <p>Tu as déjà un compte ? Connecte-toi !</p>
+          <p
+            onClick={() => {
+              setSignInModal(true);
+            }}
+          >
+            Tu as déjà un compte ? Connecte-toi !
+          </p>
         </div>
       </form>
     </main>

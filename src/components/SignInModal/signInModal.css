@@ -43,6 +43,9 @@
 .sign-in-modal form button {
   color: white;
 }
+.sign-in-modal form button:hover {
+  cursor: pointer;
+}
 .sign-in-modal form .close {
   position: absolute;
   top: 1.5rem;
@@ -64,4 +67,7 @@
   color: #2baeb7;
   font-size: 1.3rem;
   text-align: center;
+}
+.sign-in-modal form > div:last-child p:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=signInModal.css.map */

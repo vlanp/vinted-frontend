@@ -18,6 +18,9 @@
 .sign-up > form .suscribe-newsletter > input {
   transform: scale(2);
 }
+.sign-up > form .suscribe-newsletter > input:hover {
+  cursor: pointer;
+}
 .sign-up > form .signup-condition {
   font-size: 1.3rem;
   color: rgba(0, 0, 0, 0.6);
@@ -31,10 +34,16 @@
   height: 4rem;
   color: white;
 }
+.sign-up > form .confirm-signup button:hover {
+  cursor: pointer;
+}
 .sign-up > form .confirm-signup p {
   color: #2baeb7;
   font-size: 1.3rem;
   text-align: center;
+}
+.sign-up > form .confirm-signup p:hover {
+  cursor: pointer;
 }
 .sign-up > form > p {
   margin-bottom: 2rem;

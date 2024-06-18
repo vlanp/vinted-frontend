@@ -18,6 +18,9 @@
       color: rgba(0, 0, 0, 0.8);
       > input {
         transform: scale(2);
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     .signup-condition {
@@ -31,11 +34,17 @@
       button {
         height: 4rem;
         color: white;
+        &:hover {
+          cursor: pointer;
+        }
       }
       p {
         color: $blue-green;
         font-size: 1.3rem;
         text-align: center;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     > p {

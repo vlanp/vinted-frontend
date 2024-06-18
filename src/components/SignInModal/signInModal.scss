@@ -41,6 +41,9 @@
     }
     button {
       color: white;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .close {
       position: absolute;
@@ -62,6 +65,9 @@
         color: $blue-green;
         font-size: 1.3rem;
         text-align: center;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

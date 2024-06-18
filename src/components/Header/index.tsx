@@ -62,7 +62,7 @@ const Header = ({
         <div className="sell">
           <button
             onClick={() => {
-              userToken ? navigate("/publish") : setSignInModal(!signInModal);
+              navigate("/publish");
             }}
           >
             Vends tes articles

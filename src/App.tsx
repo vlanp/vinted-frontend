@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
-import SellArticle from "./components/SellArticle";
+import SellArticle from "./pages/SellArticle";
 import CheckOut from "./pages/CheckOut";
 
 // Components
@@ -44,7 +44,13 @@ function App() {
         <Route path="/offers/:id" element={<Offer />} />
         <Route
           path="/signup"
-          element={<SignUp userToken={userToken} setUserToken={setUserToken} />}
+          element={
+            <SignUp
+              userToken={userToken}
+              setUserToken={setUserToken}
+              setSignInModal={setSignInModal}
+            />
+          }
         />
         <Route
           path="/publish"
@@ -55,7 +61,12 @@ function App() {
             />
           }
         />
-        <Route path="/payment" element={<CheckOut />} />
+        <Route
+          path="/payment"
+          element={
+            <CheckOut token={userToken || ""} setSignInModal={setSignInModal} />
+          }
+        />
       </Routes>
       {signInModal && (
         <SignInModal

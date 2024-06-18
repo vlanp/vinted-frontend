@@ -8,6 +8,15 @@
   color: white;
   background-color: #00c06d;
 }
-.check-out-form > form > button:hover {
+.check-out-form > form > button:hover:not(:disabled) {
   cursor: pointer;
+}
+.check-out-form > form > button:disabled {
+  background-color: #999999;
+  border: none;
+}
+
+.check-out-form-succeed {
+  font-family: "Bw Modelica Bold", sans-serif;
+  text-align: center;
 }/*# sourceMappingURL=checkOutForm.css.map */

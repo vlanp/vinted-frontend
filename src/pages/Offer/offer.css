@@ -18,6 +18,7 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  max-width: 45rem;
   flex: 1;
   border-radius: 5px 0 0 5px;
 }
@@ -84,6 +85,9 @@
   padding: 1rem;
   color: white;
 }
+.offer-overview > section > aside > button:hover {
+  cursor: pointer;
+}
 
 @media (width < 900px) {
   .offer-overview {
@@ -91,19 +95,18 @@
     height: fit-content;
   }
   .offer-overview > section {
-    height: calc(100vh - 12rem);
-    padding: 2rem 0;
+    min-height: calc(100vh - 12rem);
     width: 35rem;
+    min-height: 80rem;
     flex-direction: column;
   }
   .offer-overview > section > img {
-    height: 0%;
     width: 100%;
+    height: 0;
     border-radius: 5px 5px 0 0;
   }
   .offer-overview > section > aside {
-    height: -moz-fit-content;
-    height: fit-content;
+    width: 100%;
     border-radius: 0 0 5px 5px;
   }
 }/*# sourceMappingURL=offer.css.map */

@@ -239,7 +239,7 @@ const SellArticle = ({
       </form>
     </section>
   ) : (
-    <section></section>
+    <></>
   );
 };
 

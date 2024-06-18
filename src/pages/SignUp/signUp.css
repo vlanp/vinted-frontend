@@ -37,6 +37,9 @@
 .sign-up > form .confirm-signup button:hover {
   cursor: pointer;
 }
+.sign-up > form .confirm-signup .sign-up-error-message {
+  color: red;
+}
 .sign-up > form .confirm-signup p {
   color: #2baeb7;
   font-size: 1.3rem;

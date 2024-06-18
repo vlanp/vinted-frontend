@@ -1,0 +1,42 @@
+.my-account {
+  min-height: calc(100vh - 7rem);
+  background-color: #ebedee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.my-account form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 50rem;
+}
+.my-account form > div {
+  display: flex;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-account form > div > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.my-account form > div > div .account-modify-icon:hover {
+  cursor: pointer;
+}
+.my-account form img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.my-account .my-account-error-message {
+  color: red;
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
+}/*# sourceMappingURL=account.css.map */

@@ -1,0 +1,33 @@
+@import "./../../cssVariable/variable.scss";
+
+.valid-address-email {
+  min-height: calc(100vh - 7rem);
+  background-color: $ligth-gray;
+  display: flex;
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+  > div {
+    padding: 2rem;
+    width: 50rem;
+    height: 30rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 2.5rem;
+    span {
+      font-family: "Bw Modelica Bold", sans-serif;
+    }
+  }
+}
+
+@media (width < 640px) {
+  .valid-address-email {
+    > div {
+      width: 35rem;
+    }
+  }
+}

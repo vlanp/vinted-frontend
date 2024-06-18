@@ -31,10 +31,10 @@ const HomeArticle = ({
   return "product_name" in offer ? (
     <Link to={"/offers/" + offer._id} className="home-article">
       <div>
-        <img src={offer.owner.account.avatar?.secure_url} alt="avatar" />
-        <p>{offer.owner.account.username}</p>
+        <img src={offer.owner?.account?.avatar?.secure_url} alt="avatar" />
+        <p>{offer.owner?.account?.username}</p>
       </div>
-      <img src={offer.product_image.secure_url} alt={offer.product_name} />
+      <img src={offer.product_image?.secure_url} alt={offer.product_name} />
       <p className="article-price">
         {offer.product_price.toFixed(2).replace(".", ",") + " €"}
       </p>

@@ -2,24 +2,25 @@ import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import "./signUp.css";
 import axios from "axios";
 import { AxiosError } from "axios";
-import Cookies from "js-cookie";
 import MyError from "../../interfaces/MyError";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const SignUp = ({
   userToken,
-  setUserToken,
   setSignInModal,
+  setUserToken,
 }: {
   userToken: string | undefined;
-  setUserToken: Dispatch<SetStateAction<string | undefined>>;
   setSignInModal: Dispatch<SetStateAction<boolean>>;
+  setUserToken: Dispatch<SetStateAction<string | undefined>>;
 }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ const SignUp = ({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setErrorMessage("");
     if (confirmedPassword !== password) {
       return alert("Les 2 mots de passe ne correspondent pas");
     }
@@ -48,8 +50,15 @@ const SignUp = ({
         import.meta.env.VITE_VINTED_API_URL + "/user/signup",
         json
       );
-      Cookies.set("userToken", response.data.token);
-      setUserToken(response.data.token);
+      if ("_id" in response.data) {
+        Cookies.set("userToken", response.data.token);
+        setUserToken(response.data.token);
+        navigate("/account-validation", { state: { email } });
+      } else {
+        setErrorMessage(
+          "Une erreur inconnue est survenu. Merci de réessayer plus tard"
+        );
+      }
     } catch (error: unknown) {
       const _error = error as AxiosError;
       console.log({
@@ -58,6 +67,10 @@ const SignUp = ({
           (_error.response?.data as MyError).message ||
           "Erreur inconnue du serveur",
       });
+      setErrorMessage(
+        (_error.response?.data as MyError).message ||
+          "Erreur inconnue du serveur"
+      );
     }
   };
 
@@ -117,6 +130,9 @@ const SignUp = ({
           </p>
         </div>
         <div className="confirm-signup">
+          {errorMessage && (
+            <p className="sign-up-error-message">{errorMessage}</p>
+          )}
           <button>S'inscrire</button>
           <p
             onClick={() => {

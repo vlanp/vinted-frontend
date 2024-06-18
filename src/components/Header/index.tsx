@@ -35,15 +35,20 @@ const Header = ({
         />
         <div className="connection">
           {userToken ? (
-            <button
-              className="deconnect-button"
-              onClick={() => {
-                Cookies.remove("userToken");
-                setUserToken(Cookies.get("userToken"));
-              }}
-            >
-              Se deconnecter
-            </button>
+            <>
+              <button
+                className="deconnect-button"
+                onClick={() => {
+                  Cookies.remove("userToken");
+                  setUserToken(Cookies.get("userToken"));
+                }}
+              >
+                Se deconnecter
+              </button>
+              <Link to="/account">
+                <button>Mon compte</button>
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/signup">

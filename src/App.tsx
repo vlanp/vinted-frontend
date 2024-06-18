@@ -9,6 +9,8 @@ import Offer from "./pages/Offer";
 import SignUp from "./pages/SignUp";
 import SellArticle from "./pages/SellArticle";
 import CheckOut from "./pages/CheckOut";
+import ValidAddressEmail from "./pages/ValidEmailAddress";
+import Account from "./pages/Account";
 
 // Components
 import Header from "./components/Header";
@@ -22,8 +24,16 @@ import {
   faXmark,
   faArrowUp,
   faArrowDown,
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faSpinner, faMagnifyingGlass, faXmark, faArrowUp, faArrowDown);
+library.add(
+  faSpinner,
+  faMagnifyingGlass,
+  faXmark,
+  faArrowUp,
+  faArrowDown,
+  faPen
+);
 
 function App() {
   const [signInModal, setSignInModal] = useState(false);
@@ -47,8 +57,8 @@ function App() {
           element={
             <SignUp
               userToken={userToken}
-              setUserToken={setUserToken}
               setSignInModal={setSignInModal}
+              setUserToken={setUserToken}
             />
           }
         />
@@ -66,6 +76,11 @@ function App() {
           element={
             <CheckOut token={userToken || ""} setSignInModal={setSignInModal} />
           }
+        />
+        <Route path="/account-validation" element={<ValidAddressEmail />} />
+        <Route
+          path="/account"
+          element={<Account userToken={userToken || ""} />}
         />
       </Routes>
       {signInModal && (

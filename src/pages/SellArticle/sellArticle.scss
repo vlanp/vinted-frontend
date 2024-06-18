@@ -170,13 +170,6 @@
       height: 8rem;
       justify-content: center;
       gap: 1rem;
-      // display: flex;
-      // height: 5rem;
-      // align-items: center;
-      // justify-content: space-between;
-      // &:not(:last-of-type) {
-      //   border-bottom: 1px solid lightgray;
-      // }
       input {
         text-align: center;
       }
@@ -197,4 +190,9 @@
       justify-content: center;
     }
   }
+}
+
+.sell-article-error-message {
+  color: red;
+  text-align: center;
 }

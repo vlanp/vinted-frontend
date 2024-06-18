@@ -188,4 +188,8 @@
   .sell-article-paiement > p {
     justify-content: center;
   }
+}
+.sell-article-error-message {
+  color: red;
+  text-align: center;
 }/*# sourceMappingURL=sellArticle.css.map */

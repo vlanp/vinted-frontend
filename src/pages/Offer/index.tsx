@@ -16,7 +16,7 @@ const Offer = () => {
 
   useEffect(() => {
     fetchData({
-      endpoint: "/v2/offers/" + id,
+      endpoint: "/offers/" + id,
       setData: setData,
       setIsLoading: setIsLoading,
     });

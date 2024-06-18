@@ -5,13 +5,11 @@ import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import axios from "axios";
 
 const CheckOutForm = ({
-  title,
-  amount,
+  id,
   completed,
   setCompleted,
 }: {
-  title: string;
-  amount: number;
+  id: string;
   completed: boolean;
   setCompleted: Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -39,10 +37,9 @@ const CheckOutForm = ({
     }
 
     const response = await axios.post(
-      import.meta.env.VITE_VINTED_API_URL + "/v2/payment",
+      import.meta.env.VITE_VINTED_API_URL + "/payment",
       {
-        title,
-        amount,
+        id,
       }
     );
 
@@ -71,7 +68,7 @@ const CheckOutForm = ({
       <form onSubmit={handleSubmit}>
         <PaymentElement />
         <button type="submit" disabled={!stripe || !elements || isLoading}>
-          Pay
+          Payer
         </button>
         {errorMessage && <p>{errorMessage}</p>}
       </form>

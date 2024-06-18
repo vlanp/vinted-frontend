@@ -1,0 +1,45 @@
+@import "./../../cssVariable//variable.scss";
+
+.my-account {
+  min-height: calc(100vh - 7rem);
+  background-color: $ligth-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50rem;
+    > div {
+      display: flex;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 5px;
+      justify-content: space-between;
+      align-items: center;
+      > div {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .account-modify-icon {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  .my-account-error-message {
+    color: red;
+    background-color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+}

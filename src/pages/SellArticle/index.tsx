@@ -7,8 +7,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
+import MyError from "../../interfaces/MyError";
 
 const SellArticle = ({
   token,
@@ -28,6 +29,7 @@ const SellArticle = ({
   const [location, setLocation] = useState<string>("");
   const [price, setPrice] = useState<string>("0");
   const [exchange, setExchange] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -37,6 +39,7 @@ const SellArticle = ({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setErrorMessage("");
     try {
       const formData = new FormData();
 
@@ -62,8 +65,6 @@ const SellArticle = ({
       formData.append("price", price);
       picture && formData.append("picture", picture);
 
-      console.log(formData);
-
       const response = await axios.post(
         import.meta.env.VITE_VINTED_API_URL + "/offer/publish",
         formData,
@@ -74,10 +75,25 @@ const SellArticle = ({
           },
         }
       );
-      console.log(response);
-      navigate("/offers/" + response.data._id);
-    } catch (error) {
-      console.log(error);
+      if (response.data?._id) {
+        navigate("/offers/" + response.data._id);
+      } else {
+        setErrorMessage(
+          "Une erreur inconnue est survenu. Merci de réessayer plus tard"
+        );
+      }
+    } catch (error: unknown) {
+      const _error = error as AxiosError;
+      console.log({
+        status: _error.response?.status || "unknown",
+        message:
+          (_error.response?.data as MyError).message ||
+          "Erreur inconnue du serveur",
+      });
+      setErrorMessage(
+        (_error.response?.data as MyError).message ||
+          "Erreur inconnue du serveur"
+      );
     }
   };
 
@@ -234,6 +250,11 @@ const SellArticle = ({
             Je suis intéressé(e) par les échanges
           </p>
         </section>
+        {errorMessage && (
+          <section className="sell-article-error-message">
+            <p>{errorMessage}</p>
+          </section>
+        )}
         <button>Créer l'offre</button>
       </form>
     </section>

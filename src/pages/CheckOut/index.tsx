@@ -15,7 +15,7 @@ const CheckOut = ({
   setSignInModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [completed, setCompleted] = useState<boolean>(false);
-  const { productPrice, productName } = useLocation().state;
+  const { productPrice, productName, productId } = useLocation().state;
   const protectionFees = productPrice / 10;
   const deliveryFees = productPrice / 5;
   const total = productPrice + protectionFees + deliveryFees;
@@ -66,8 +66,7 @@ const CheckOut = ({
         <div className="check-out-stripe">
           <Elements stripe={stripePromise} options={options}>
             <CheckOutForm
-              title={productName}
-              amount={total}
+              id={productId}
               completed={completed}
               setCompleted={setCompleted}
             />

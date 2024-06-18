@@ -1,10 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./sellArticle.css";
-import { FormEvent, useState } from "react";
+import {
+  Dispatch,
+  FormEvent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const SellArticle = ({ token }: { token: string }) => {
+const SellArticle = ({
+  token,
+  setSignInModal,
+}: {
+  token: string;
+  setSignInModal: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [picture, setPicture] = useState<File | undefined>();
   const [previewPicture, setPreviewPicture] = useState<string>("");
   const [title, setTitle] = useState<string>("");
@@ -18,6 +30,10 @@ const SellArticle = ({ token }: { token: string }) => {
   const [exchange, setExchange] = useState<boolean>(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    token || setSignInModal(true);
+  }, [token, setSignInModal]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -65,7 +81,7 @@ const SellArticle = ({ token }: { token: string }) => {
     }
   };
 
-  return (
+  return token ? (
     <section className="sell-article">
       <form onSubmit={handleSubmit}>
         <p className="sell-article-title">Vends ton article</p>
@@ -222,6 +238,8 @@ const SellArticle = ({ token }: { token: string }) => {
         <button>Créer l'offre</button>
       </form>
     </section>
+  ) : (
+    <section></section>
   );
 };
 

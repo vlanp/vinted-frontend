@@ -47,7 +47,12 @@ function App() {
         />
         <Route
           path="publish"
-          element={<SellArticle token={userToken || ""} />}
+          element={
+            <SellArticle
+              token={userToken || ""}
+              setSignInModal={setSignInModal}
+            />
+          }
         />
       </Routes>
       {signInModal && (

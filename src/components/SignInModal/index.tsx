@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios, { AxiosError } from "axios";
 import Cookies from "js-cookie";
 import MyError from "../../interfaces/MyError";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const unacceptedLocation = ["/publish"];
 
 const SignInModal = ({
   signInModal,
@@ -17,6 +21,9 @@ const SignInModal = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [connectionError, setConnectionError] = useState(false);
+
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -59,6 +66,9 @@ const SignInModal = ({
           icon={"xmark"}
           onClick={() => {
             setSignInModal(!signInModal);
+            if (unacceptedLocation.includes(location)) {
+              navigate("/");
+            }
           }}
         />
         <p className="form-title">Se connecter</p>

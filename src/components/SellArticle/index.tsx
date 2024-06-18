@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./sellArticle.css";
 import { FormEvent, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SellArticle = ({ token }: { token: string }) => {
   const [picture, setPicture] = useState<File | undefined>();
@@ -13,28 +14,39 @@ const SellArticle = ({ token }: { token: string }) => {
   const [color, setColor] = useState<string>("");
   const [condition, setCondition] = useState<string>("");
   const [location, setLocation] = useState<string>("");
-  const [price, setPrice] = useState<number | undefined>();
+  const [price, setPrice] = useState<string>("0");
   const [exchange, setExchange] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const formData = new FormData();
 
-      const target = event.currentTarget;
+      //   const target = event.currentTarget;
 
-      for (let i = 0; i < target.length; i++) {
-        if (target.elements[i].getAttribute("name")) {
-          if (!target.elements[i].value) {
-            return alert("Le formulaire est incomplet");
-          }
-          formData[target.elements[i].getAttribute("name")] =
-            target.elements[i].value;
-        }
-      }
+      //   for (let i = 0; i < target.length; i++) {
+      //     if (target.elements[i].getAttribute("name")) {
+      //       if (!target.elements[i].value) {
+      //         return alert("Le formulaire est incomplet");
+      //       }
+      //       formData[target.elements[i].getAttribute("name")] =
+      //         target.elements[i].value;
+      //     }
+      //   }
       console.log(picture);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("brand", brand);
+      formData.append("size", size);
+      formData.append("color", color);
+      formData.append("condition", condition);
+      formData.append("location", location);
+      formData.append("price", price);
+      picture && formData.append("picture", picture);
 
-      formData.append("picture", picture);
+      console.log(formData);
 
       const response = await axios.post(
         import.meta.env.VITE_VINTED_API_URL + "/offer/publish",
@@ -47,6 +59,7 @@ const SellArticle = ({ token }: { token: string }) => {
         }
       );
       console.log(response);
+      navigate("/offers/" + response.data._id);
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +91,8 @@ const SellArticle = ({ token }: { token: string }) => {
                     console.log(event);
 
                     if (event.target.files && event.target.files[0]) {
+                      console.log(event.target.files[0]);
+
                       setPicture(event.target.files[0]);
                       setPreviewPicture(
                         URL.createObjectURL(event.target.files[0])
@@ -188,7 +203,7 @@ const SellArticle = ({ token }: { token: string }) => {
               name="price"
               placeholder="0,00"
               onChange={(event) => {
-                setPrice(Number(event.target.value));
+                setPrice(event.target.value);
               }}
               value={price}
             />
@@ -197,7 +212,7 @@ const SellArticle = ({ token }: { token: string }) => {
             <input
               type="checkbox"
               checked={exchange}
-              onClick={() => {
+              onChange={() => {
                 setExchange(!exchange);
               }}
             />

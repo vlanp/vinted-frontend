@@ -15,6 +15,10 @@
   background-color: #999999;
   border: none;
 }
+.check-out-form .check-out-form-error-message {
+  color: red;
+  text-align: center;
+}
 
 .check-out-form-succeed {
   font-family: "Bw Modelica Bold", sans-serif;

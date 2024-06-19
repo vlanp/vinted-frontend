@@ -59,6 +59,7 @@ const Home = ({ search }: { search: string }) => {
       if (!data) {
         return;
       }
+
       const dataCopy = { ...data };
       // Création de fausses offres pour gérer l'affichage de la dernière ligne d'offres
       for (let i = 0; i <= 4; i++) {

@@ -69,7 +69,7 @@ This project is a responsive web application that replicates some key functional
 
 ## License
 
-Distributed under the unlicense license. See `LICENSE.txt` for more information.
+Distributed under the unlicense license. See `license.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

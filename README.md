@@ -94,7 +94,7 @@ Project Link: [https://github.com/vlanp/vinted-frontend](https://github.com/vlan
 [issues-shield]: https://img.shields.io/github/issues/vlanp/vinted-frontend.svg?style=for-the-badge
 [issues-url]: https://github.com/vlanp/vinted-frontend/issues
 [license-shield]: https://img.shields.io/github/license/vlanp/vinted-frontend.svg?style=for-the-badge
-[license-url]: https://github.com/vlanp/vinted-frontend/blob/master/LICENSE.txt
+[license-url]: https://github.com/vlanp/vinted-frontend/blob/master/license.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/valentin-guillaume-b3b9742ab
 [product-screenshot]: images/screenshot.png

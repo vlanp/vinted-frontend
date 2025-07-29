@@ -6,12 +6,14 @@ import { Dispatch, SetStateAction } from "react";
 const FilterRange = ({
   values,
   setValues,
+  setFinalValues,
   minRange,
   maxRange,
   text,
 }: {
   values: RangeValues;
   setValues: Dispatch<SetStateAction<RangeValues | undefined>>;
+  setFinalValues: Dispatch<SetStateAction<RangeValues | undefined>>;
   minRange: number;
   maxRange: number;
   text: string;
@@ -26,6 +28,9 @@ const FilterRange = ({
         values={[values.minValue, values.maxValue]}
         onChange={(values) =>
           setValues({ minValue: values[0], maxValue: values[1] })
+        }
+        onFinalChange={(values) =>
+          setFinalValues({ minValue: values[0], maxValue: values[1] })
         }
         renderTrack={({ props, children }) => (
           <div

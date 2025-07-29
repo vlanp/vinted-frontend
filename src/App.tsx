@@ -26,6 +26,7 @@ import {
   faArrowDown,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDebounce } from "use-debounce";
 library.add(
   faSpinner,
   faMagnifyingGlass,
@@ -39,6 +40,7 @@ function App() {
   const [signInModal, setSignInModal] = useState(false);
   const [userToken, setUserToken] = useState(Cookies.get("userToken"));
   const [search, setSearch] = useState("");
+  const [debounceSearch] = useDebounce(search, 300);
   return (
     <Router>
       <Header
@@ -50,7 +52,7 @@ function App() {
         setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element={<Home search={search} />} />
+        <Route path="/" element={<Home search={debounceSearch} />} />
         <Route path="/offers/:id" element={<Offer />} />
         <Route
           path="/signup"

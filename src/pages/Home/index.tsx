@@ -16,6 +16,7 @@ import Sort from "../../enums/Sort";
 const Home = ({ search }: { search: string }) => {
   const [sort, setSort] = useState<Sort>(Sort.ASCENDING);
   const [values, setValues] = useState<RangeValues>();
+  const [finalValues, setFinalValues] = useState<RangeValues>();
   const [isLoading, setIsLoading] = useState(true);
   const [isLoading2, setIsLoading2] = useState(true);
   const [allData, setAllData] = useState<DatasOffers>();
@@ -50,9 +51,9 @@ const Home = ({ search }: { search: string }) => {
           "&sort=" +
           sort +
           "&priceMin=" +
-          (values?.minValue || 0) +
+          (finalValues?.minValue || 0) +
           "&priceMax=" +
-          (values?.maxValue || Infinity) +
+          (finalValues?.maxValue || Infinity) +
           "&title=" +
           search,
       });
@@ -69,7 +70,7 @@ const Home = ({ search }: { search: string }) => {
       data && setIsLoading(false);
     };
     fetchDataAndAddFake();
-  }, [currentPage, limit, sort, values, search]);
+  }, [currentPage, limit, sort, finalValues, search]);
 
   let lowerPrice = 100;
   let higherPrice = lowerPrice + 5;
@@ -107,6 +108,7 @@ const Home = ({ search }: { search: string }) => {
             <FilterRange
               values={values || { minValue: lowerPrice, maxValue: higherPrice }}
               setValues={setValues}
+              setFinalValues={setFinalValues}
               minRange={lowerPrice}
               maxRange={higherPrice}
               text="Prix entre:"

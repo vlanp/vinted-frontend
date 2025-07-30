@@ -2,7 +2,7 @@
 title: Introduction
 description: Présentation du projet
 nav: 0
-id: 0
+id: 8059aa5d435cc2cc893c5dffeb02b0cf
 ---
 
 Ce projet est une application web responsive qui reproduit certaines fonctionnalités clés de Vinted, incluant l'authentification utilisateur et la gestion de compte, la possibilité de publier, filtrer et trier les annonces, ainsi qu'un traitement sécurisé des paiements alimenté par Stripe. J'ai construit ce site dans le cadre de la formation de développement web et mobile de 10 semaines que j'ai effectué en 2024 auprès de l'organisme [Le Reacteur](https://www.lereacteur.io/).

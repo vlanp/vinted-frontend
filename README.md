@@ -31,7 +31,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">Vinted Replica</h3>
+<h3 align="center">Vinted Replica Website</h3>
 
   <p align="center">
 This project is a <a href="https://www.vinted.fr">Vinted</a> replica that I built during my bootcamp at <a href="https://www.lereacteur.io/">Le Reacteur</a> in 2024.

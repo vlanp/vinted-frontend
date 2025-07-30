@@ -36,7 +36,7 @@
   <p align="center">
 This project is a <a href="https://www.vinted.fr">Vinted</a> replica that I built during my bootcamp at <a href="https://www.lereacteur.io/">Le Reacteur</a> in 2024.
     <br />
-    <a href="https://github.com/vlanp/vinted-frontend"><strong>Explore the docs</strong></a>
+    <a href="https://portfolio-v2-puce-ten.vercel.app/projects/68896865718a051c3e2a6741"><strong>Explore the docs</strong></a>
     <br />
     <br />
     <a href="https://vocal-travesseiro-25a355.netlify.app/">View Demo</a>

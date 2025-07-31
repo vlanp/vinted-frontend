@@ -1,7 +1,7 @@
 ---
 title: Navigation
 description: Gestion des routes avec React Router
-nav: 1
+nav: 2
 id: f4b46e57b074b40ab34fe4c4902abbb8
 ---
 
@@ -219,6 +219,6 @@ const [signInModal, setSignInModal] = useState(false);
 
 ## Fonctionnement de la navigation
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-dark_xejflx.svg" alt="Fonctionnement de la navigation" class="light:hidden" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-dark_xejflx.svg" alt="Fonctionnement de la navigation" class="hidden dark:block" />
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-light_xddx9p.svg" alt="Fonctionnement de la navigation" class="dark:hidden" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-light_xddx9p.svg" alt="Fonctionnement de la navigation" class="block dark:hidden" />

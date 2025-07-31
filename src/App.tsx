@@ -90,6 +90,7 @@ function App() {
           signInModal={signInModal}
           setSignInModal={setSignInModal}
           setUserToken={setUserToken}
+          userToken={userToken}
         />
       )}
     </Router>

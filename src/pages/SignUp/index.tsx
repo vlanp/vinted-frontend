@@ -1,4 +1,10 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from "react";
+import {
+  Dispatch,
+  FormEvent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import "./signUp.css";
 import axios from "axios";
 import { AxiosError } from "axios";
@@ -24,7 +30,11 @@ const SignUp = ({
 
   const navigate = useNavigate();
 
-  userToken && navigate("/");
+  useEffect(() => {
+    if (userToken) {
+      navigate("/");
+    }
+  }, [navigate, userToken]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,7 +84,9 @@ const SignUp = ({
     }
   };
 
-  return (
+  return userToken ? (
+    <></>
+  ) : (
     <main className="sign-up">
       <form onSubmit={handleSubmit}>
         <p className="form-title">S'inscrire</p>

@@ -109,7 +109,7 @@ function App() {
 export default App;
 ```
 
-## Les routes
+## Déclaration des pages / routes avec React Router
 
 Dans la balise **Router** est indiquée une balise **Routes**. Cette dernière contient une liste de balise **Route**, associant chaque route accessible, via l'attribut **_path_**, à chaque composant à afficher, avec l'attribut **_element_**.
 
@@ -148,7 +148,9 @@ Dans la balise **Router** est indiquée une balise **Routes**. Cette dernière c
 </Router>
 ```
 
-Ainsi, ce site internet est composé de 7 routes :
+## Présentation des pages
+
+Ce site internet est composé de 7 pages :
 
 - "/" : Affiche la page **Home**, correspondant à la page d'acceuil du site
 
@@ -166,7 +168,7 @@ Ainsi, ce site internet est composé de 7 routes :
 
 ![Page mon compte](https://res.cloudinary.com/dwuvdquym/image/upload/v1753904669/vinted/docs/Account_page_e24vfw.png)
 
-- "/publish" : Affiche la page **SellArticle** qui permet de mettre en ligne une offre
+- "/publish" : Affiche la page **SellArticle** qui permet de mettre en ligne une offre (nécessite d'être connecté)
 
 ![Page d'ajout d'annonces](https://res.cloudinary.com/dwuvdquym/image/upload/v1753903854/vinted/docs/SellArticle_page_noo2yt.png)
 
@@ -174,9 +176,11 @@ Ainsi, ce site internet est composé de 7 routes :
 
 ![Page d'une offre](https://res.cloudinary.com/dwuvdquym/image/upload/v1753902909/vinted/docs/Offer_page_jvgwsq.png)
 
-- "/payment" : Affiche la page **CheckOut** qui permet de procéder au paiement / achat de l'article d'une offre
+- "/payment" : Affiche la page **CheckOut** qui permet de procéder au paiement / achat de l'article d'une offre (nécessite d'être connecté)
 
 ![Page de paiement](https://res.cloudinary.com/dwuvdquym/image/upload/v1753904019/vinted/docs/CheckOut_page_hkafdw.png)
+
+## Le header
 
 Un **header** est ajouté dans la balise **Router** et en amont de la balise **Routes**, ce qui lui permet d'être afficher en haut de chacune des pages du site.
 
@@ -196,6 +200,8 @@ Un **header** est ajouté dans la balise **Router** et en amont de la balise **R
   ...
 </Router>
 ```
+
+## La modale de connexion
 
 Une modale **SignInModal** est ajoutée dans la balise **Router** en aval de la balise **Routes**. Elle apparait uniquement quand l'état **_signInModal_** est Truthy et, étant en position **_fixed_**, elle vient se placer devant la page, empêchant les intéractions avec cette dernière tant que la modale reste ouverte.
 
@@ -217,8 +223,8 @@ const [signInModal, setSignInModal] = useState(false);
 </Router>;
 ```
 
-## Fonctionnement de la navigation
+## Navigation entre les pages
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-dark_xejflx.svg" alt="Fonctionnement de la navigation" class="hidden dark:block" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753997453/vinted/docs/vinted-frontend-navigation-dark-fr_smxjce.svg" alt="Fonctionnement de la navigation" class="hidden dark:block" />
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753921475/vinted/docs/vinted-frontend-navigation-light_xddx9p.svg" alt="Fonctionnement de la navigation" class="block dark:hidden" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753997451/vinted/docs/vinted-frontend-navigation-light-fr_nchb3a.svg" alt="Fonctionnement de la navigation" class="block dark:hidden" />

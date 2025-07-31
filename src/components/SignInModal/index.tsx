@@ -13,10 +13,12 @@ const SignInModal = ({
   signInModal,
   setSignInModal,
   setUserToken,
+  userToken,
 }: {
   signInModal: boolean;
   setSignInModal: Dispatch<SetStateAction<boolean>>;
   setUserToken: Dispatch<SetStateAction<string | undefined>>;
+  userToken: string | undefined;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,7 +60,9 @@ const SignInModal = ({
     }
   };
 
-  return (
+  return userToken ? (
+    <></>
+  ) : (
     <section className="sign-in-modal">
       <form onSubmit={handleSubmit}>
         <FontAwesomeIcon

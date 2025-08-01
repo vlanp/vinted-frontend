@@ -7,7 +7,6 @@ import {
 } from "react";
 import "./signUp.css";
 import axios from "axios";
-import { AxiosError } from "axios";
 import MyError from "../../interfaces/MyError";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -70,17 +69,14 @@ const SignUp = ({
         );
       }
     } catch (error: unknown) {
-      const _error = error as AxiosError;
-      console.log({
-        status: _error.response?.status || "unknown",
-        message:
-          (_error.response?.data as MyError).message ||
-          "Erreur inconnue du serveur",
-      });
-      setErrorMessage(
-        (_error.response?.data as MyError).message ||
-          "Erreur inconnue du serveur"
-      );
+      if (axios.isAxiosError(error)) {
+        setErrorMessage(
+          (error.response?.data as MyError)?.message ||
+            "Erreur inconnue du serveur"
+        );
+      } else {
+        setErrorMessage("Erreur inconnue du serveur");
+      }
     }
   };
 

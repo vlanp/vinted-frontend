@@ -1,9 +1,8 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import "./signInModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import Cookies from "js-cookie";
-import MyError from "../../interfaces/MyError";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -49,13 +48,6 @@ const SignInModal = ({
       setUserToken(response.data.token);
       setSignInModal(!signInModal);
     } catch (error) {
-      const _error = error as AxiosError;
-      console.log({
-        status: _error.response?.status || "unknown",
-        message:
-          (_error.response?.data as MyError).message ||
-          "Erreur inconnue du serveur",
-      });
       setConnectionError(true);
     }
   };

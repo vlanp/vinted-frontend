@@ -311,4 +311,4 @@ La logique utilisée pour la connexion à un compte est très similaire à celle
 
 Le code est le suivant.
 
-src/components/SignInModal/index.tsx
+[src/components/SignInModal/index.tsx](https://github.com/vlanp/vinted-frontend/blob/095b37550a1137a766a1c48c194b749b2e3dd606/src/components/SignInModal/index.tsx)

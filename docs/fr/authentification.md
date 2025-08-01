@@ -142,14 +142,10 @@ Si un message d'erreur a été indiqué, il est affiché à l'utilisateur en bas
 </form>
 ```
 
-Le code complet pour la création d'un compte est le suivant.
-
-https://github.com/vlanp/vinted-frontend/blob/7ad2c186fbe153b2302bad5f9f428a9619381a02/src/pages/SignUp/index.tsx#L1-L158
+> Le code complet pour la création d'un compte est diponible [ici](https://github.com/vlanp/vinted-frontend/blob/7ad2c186fbe153b2302bad5f9f428a9619381a02/src/pages/SignUp/index.tsx).
 
 ## Connexion à un compte
 
 La logique utilisée pour la connexion à un compte est très similaire à celle de la création du compte, sauf qu'il n'y a plus que 2 états soumis par le formulaire (email et mot de passe) au lieu de 4.
 
-Le code est le suivant.
-
-https://github.com/vlanp/vinted-frontend/blob/095b37550a1137a766a1c48c194b749b2e3dd606/src/components/SignInModal/index.tsx#L1-L108
+> Le code complet pour la connexion au compte est disponible [ici](https://github.com/vlanp/vinted-frontend/blob/095b37550a1137a766a1c48c194b749b2e3dd606/src/components/SignInModal/index.tsx)

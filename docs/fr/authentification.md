@@ -311,4 +311,4 @@ La logique utilisée pour la connexion à un compte est très similaire à celle
 
 Le code est le suivant.
 
-{% include_relative src/components/SignInModal/index.tsx %}
+src/components/SignInModal/index.tsx

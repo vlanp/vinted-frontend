@@ -123,6 +123,6 @@ const [signInModal, setSignInModal] = useState(false);
 
 ## Navigation entre les pages
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753997453/vinted/docs/vinted-frontend-navigation-dark-fr_smxjce.svg" alt="Fonctionnement de la navigation" class="hidden dark:block" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1754256413/vinted/docs/vinted-frontend-navigation-dark-fr_p5rbzp.svg" alt="Fonctionnement de la navigation" class="hidden dark:block" />
 
-<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1753997451/vinted/docs/vinted-frontend-navigation-light-fr_nchb3a.svg" alt="Fonctionnement de la navigation" class="block dark:hidden" />
+<img src="https://res.cloudinary.com/dwuvdquym/image/upload/v1754256414/vinted/docs/vinted-frontend-navigation-light-fr_nzgca9.svg" alt="Fonctionnement de la navigation" class="block dark:hidden" />

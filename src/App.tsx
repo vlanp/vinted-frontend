@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useDebounce } from "use-debounce";
 
 // Pages
 import Home from "./pages/Home";
@@ -26,7 +27,6 @@ import {
   faArrowDown,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDebounce } from "use-debounce";
 library.add(
   faSpinner,
   faMagnifyingGlass,
@@ -68,7 +68,7 @@ function App() {
           path="/publish"
           element={
             <SellArticle
-              token={userToken || ""}
+              userToken={userToken || ""}
               setSignInModal={setSignInModal}
             />
           }

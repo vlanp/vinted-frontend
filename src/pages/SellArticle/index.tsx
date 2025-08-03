@@ -12,10 +12,10 @@ import { useNavigate } from "react-router-dom";
 import MyError from "../../interfaces/MyError";
 
 const SellArticle = ({
-  token,
+  userToken,
   setSignInModal,
 }: {
-  token: string;
+  userToken: string;
   setSignInModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [picture, setPicture] = useState<File | undefined>();
@@ -34,8 +34,8 @@ const SellArticle = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    token || setSignInModal(true);
-  }, [token, setSignInModal]);
+    userToken || setSignInModal(true);
+  }, [userToken, setSignInModal]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -70,7 +70,7 @@ const SellArticle = ({
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${userToken}`,
             "Content-Type": "multipart/form-data",
           },
         }
@@ -97,7 +97,7 @@ const SellArticle = ({
     }
   };
 
-  return token ? (
+  return userToken ? (
     <section className="sell-article">
       <form onSubmit={handleSubmit}>
         <p className="sell-article-title">Vends ton article</p>

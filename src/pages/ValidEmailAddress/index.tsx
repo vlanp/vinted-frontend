@@ -2,7 +2,14 @@ import { useLocation } from "react-router-dom";
 import "./validAddressEmail.css";
 
 const ValidAddressEmail = () => {
-  const { email } = useLocation().state;
+  const historyState = useLocation().state;
+
+  if (!historyState) {
+    return <></>;
+  }
+
+  const { email } = historyState;
+
   return (
     <section className="valid-address-email">
       <div>

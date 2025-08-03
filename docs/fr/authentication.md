@@ -81,7 +81,7 @@ Si aucune exception est levée lors de la requête avec **_axios_**, cela signif
 
 - Nous mettons à jour l'état contenant le token de l'utilisateur, qui sera utilisé pour prouver que l'utilisateur est authentifié
 - Nous mettons à jour le cookie **_userToken_** pour contenir le token de l'utilisateur, qui pourra être utilisé par la suite pour conserver la connexion au compte malgré le redémarrage et le reset des états du site
-- Nous redirigeons l'utilisateur vers la page de validation d'adresse email. Une adresse email non vérifiée empêchera à l'utilisateur de publier des offres on de procéder à des achats
+- Nous redirigeons l'utilisateur vers la page de validation d'adresse email. Une adresse email non vérifiée empêchera à l'utilisateur de publier des offres on de procéder à des achats. Cette adresse ne provoque aucune action, elle informe uniquement l'utilisateur de l'adresse mail devant être vérifiée.
 
 En cas d'exception levée suite à la requête avec **_axios_**, ou de réponse ne contenant pas les données prévues, nous mettons à jour l'état **_errorMessage_** avec les informations que nous avons à notre disposition.
 
@@ -149,3 +149,53 @@ Si un message d'erreur a été indiqué, il est affiché à l'utilisateur en bas
 La logique utilisée pour la connexion à un compte est très similaire à celle de la création du compte, sauf qu'il n'y a plus que 2 états soumis par le formulaire (email et mot de passe) au lieu de 4.
 
 > Le code complet pour la connexion au compte est disponible [ici](https://github.com/vlanp/vinted-frontend/blob/095b37550a1137a766a1c48c194b749b2e3dd606/src/components/SignInModal/index.tsx)
+
+## Sécurisation des routes
+
+Les routes auxquels l'utilisateur ne doit pas accéder sans être authentifié sont :
+
+- La route "/payment"
+- La route "/publish"
+
+Si l'utilisateur y accède sans être authentifié, une page vide est affichée, et la modale de connexion est ouverte.
+
+```tsx
+useEffect(() => {
+  userToken || setSignInModal(true);
+}, [userToken, setSignInModal]);
+```
+
+```tsx
+  return token ? ... : <></>;
+```
+
+Le composant de la modale récupère la route actuelle, et en cas de fermeture de celle-ci, vérifie si la route actuelle fait partie des routes protégées. Si c'est le cas, l'utilisateur est redirigé vers la page d'accueil.
+
+```tsx
+import { useLocation } from "react-router-dom";
+```
+
+```tsx
+const unacceptedLocation = ["/publish", "/payment"];
+```
+
+```tsx
+const location = useLocation().pathname;
+```
+
+```tsx
+<FontAwesomeIcon
+  className="close"
+  icon={"xmark"}
+  onClick={() => {
+    setSignInModal(!signInModal);
+    if (unacceptedLocation.includes(location)) {
+      navigate("/");
+    }
+  }}
+/>
+```
+
+L'accès à la route "/account" par un utilisateur non authentifier affiche un message d'erreur.
+
+La protection mise en place côté frontend (interface utilisateur) ne constitue qu'une mesure de sécurité secondaire, car un utilisateur peut toujours manipuler manuellement les données stockées dans les cookies ou le localStorage pour usurper l'identité d'un utilisateur authentifié. La véritable validation de sécurité s'effectue donc côté serveur (backend), qui se charge de vérifier l'authenticité et la validité du token d'authentification avant d'autoriser l'accès aux ressources protégées.
